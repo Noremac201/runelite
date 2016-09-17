@@ -1,5 +1,10 @@
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.awt.image.WritableRaster;
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
+import javax.imageio.ImageIO;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
@@ -220,7 +225,44 @@ public class class53 extends CacheableNode {
          class82.method1828(var15);
          class94.method2146();
          class94.rasterGouraudLowRes = true;
+
+	      try
+	      {
+		      BufferedImage image = new BufferedImage(var8.width, var8.height, BufferedImage.TYPE_INT_ARGB);
+		      for (int i = 0; i < var8.width; ++i)
+		      {
+			      for (int j = 0; j < var8.height; ++j)
+			      {
+				      int pixel = var8.image[j * var8.width + i];
+				      if ((pixel & 0xff000000) == 0 && (pixel & 0xffffff) != 0)
+				      {
+					      pixel |= 0xff000000;
+				      }
+				      image.setRGB(i, j, pixel);
+			      }
+		      }
+		      ImageIO.write(image, "png", new File("d:/rs/07/temp/items/" + var0 + ".png"));
+
+		      if (!once)
+		      {
+			      once = true;
+			      for (int i = 0; i < 65535; ++i)
+			      {
+				      if (ItemComposition.field1198.method3290(10, i) != null)
+				      {
+					      createSprite(i, -1, var2, var3, var4, var5);
+				      }
+			      }
+		      }
+	      }
+	      catch (Exception ex)
+	      {
+		      ex.printStackTrace();
+	      }
+	      
          return var8;
       }
    }
+
+   static boolean once = false;
 }
