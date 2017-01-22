@@ -25,6 +25,9 @@
 
 package net.runelite.api;
 
+import net.runelite.rs.api.CombatInfo1;
+import net.runelite.rs.api.MessageNode;
+
 import java.awt.*;
 import java.util.Arrays;
 
@@ -76,7 +79,7 @@ public class Client
 
     public void sendGameMessage(String message)
     {
-        client.sendGameMessage(99, "", message);
+        client.sendGameMessage(2, "", message);
     }
 
     public GameState getGameState()
@@ -122,5 +125,10 @@ public class Client
     public boolean isResized()
     {
         return client.isResized();
+    }
+
+    public String[] getMessages()
+    {
+        return client.getChatMessages().getMessages();
     }
 }

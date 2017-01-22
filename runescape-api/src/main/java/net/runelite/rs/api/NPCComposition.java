@@ -42,10 +42,10 @@ public interface NPCComposition
     boolean isClickable();
 
     @Import("isMinimapVisible")
-    boolean isMinimapVisable();
+    boolean isMinimapVisible();
 
     @Import("isVisible")
-    boolean isVisable();
+    boolean isVisible();
 
     @Import("id")
     int getId();

@@ -25,18 +25,16 @@
 
 package net.runelite.client.plugins.opponentinfo;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
-
 import net.runelite.api.Actor;
 import net.runelite.api.Client;
+import net.runelite.api.NPC;
 import net.runelite.api.Player;
 import net.runelite.client.RuneLite;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
+
+import java.awt.*;
 
 class OpponentInfoOverlay extends Overlay
 {
@@ -71,7 +69,7 @@ class OpponentInfoOverlay extends Overlay
     @Override
     public Dimension render(Graphics2D graphics)
     {
-        Actor opponent = getOpponent();
+        Actor opponent = (NPC) getOpponent();
 
         if (opponent == null)
             return null;
@@ -99,6 +97,8 @@ class OpponentInfoOverlay extends Overlay
         graphics.drawString(str, x, fm.getHeight() + TOP_BORDER);
 
         // hp bar
+        System.out.println(opponent.getHealthRatio());
+        System.out.println(opponent.getID());
 
         if (max > 0)
         {
@@ -119,6 +119,7 @@ class OpponentInfoOverlay extends Overlay
             x = (WIDTH - fm.stringWidth(str)) / 2;
             graphics.setColor(Color.white);
             graphics.drawString(str, x, barY + fm.getHeight());
+
         }
 
         return new Dimension(WIDTH, height);

@@ -218,4 +218,9 @@ public interface Client extends GameEngine
     @Import("loginMessage2")
     String getLoginMessage2();
 
+    @Import("chatMessages")
+    ChatMessages getChatMessages();
+
+    @Import("lines")
+    MessageNode[] getLines();
 }

@@ -25,6 +25,7 @@
 
 package net.runelite.client.ui;
 
+import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.WindowAdapter;
@@ -32,13 +33,13 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
-import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public final class ClientUI extends JFrame implements ComponentListener
+public final class ClientUI extends JFrame
 {
-    private ClientPanel panel;
+    private ClientPanel clientPanel;
+    private PluginPanel pluginPanel;
 
     public ClientUI() throws Exception
     {
@@ -48,7 +49,6 @@ public final class ClientUI extends JFrame implements ComponentListener
         setLocationRelativeTo(getOwner());
         setMinimumSize(getSize());
         setResizable(true);
-        this.addComponentListener(this);
     }
 
     private void init() throws Exception
@@ -72,8 +72,13 @@ public final class ClientUI extends JFrame implements ComponentListener
         {
         }
 
-        panel = new ClientPanel();
-        add(panel);
+        clientPanel = new ClientPanel();
+        pluginPanel = new PluginPanel();
+        //add(pluginPanel);
+        add(clientPanel);
+        //pluginPanel.setAlignmentX(Component.RIGHT_ALIGNMENT);
+        setBackground(Color.black);
+
     }
 
     private void checkExit()
@@ -84,26 +89,5 @@ public final class ClientUI extends JFrame implements ComponentListener
         {
             System.exit(0);
         }
-    }
-
-    @Override
-    public void componentResized(ComponentEvent e)
-    {
-        SwingUtilities.invokeLater(() -> pack()); // is this right?
-    }
-
-    @Override
-    public void componentMoved(ComponentEvent e)
-    {
-    }
-
-    @Override
-    public void componentShown(ComponentEvent e)
-    {
-    }
-
-    @Override
-    public void componentHidden(ComponentEvent e)
-    {
     }
 }

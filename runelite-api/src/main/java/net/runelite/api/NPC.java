@@ -37,6 +37,16 @@ public class NPC extends Actor
         this.npc = npc;
     }
 
+    public int getCombatLevel()
+    {
+        return npc.getComposition().getCombatLevel();
+    }
+
+    public int getID()
+    {
+        return npc.getComposition().getId();
+    }
+
     @Override
     public String getName()
     {
