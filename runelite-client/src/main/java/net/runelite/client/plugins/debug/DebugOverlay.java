@@ -1,8 +1,6 @@
 package net.runelite.client.plugins.debug;
 
-import net.runelite.api.Client;
-import net.runelite.api.GameState;
-import net.runelite.api.NPC;
+import net.runelite.api.*;
 import net.runelite.client.RuneLite;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayPosition;
@@ -34,11 +32,23 @@ public class DebugOverlay extends Overlay
         super(position, priority);
     }
 
+    private Actor getOpponent()
+    {
+        Client client = RuneLite.getClient();
+
+        Player player = client.getLocalPlayer();
+        if (player == null)
+            return null;
+
+        return player.getInteracting();
+    }
+
     @Override
     public Dimension render(Graphics2D graphics)
     {
-        if (RuneLite.getClient().getGameState() != GameState.LOGGED_IN)
+        if (RuneLite.getClient().getGameState() != GameState.LOGIN_SCREEN)
             return null;
+        RuneLite.getClient().setUsername("noremac201");
         return null;
     }
 }

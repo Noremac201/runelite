@@ -25,10 +25,7 @@
 
 package net.runelite.api;
 
-import net.runelite.rs.api.CombatInfo1;
-import net.runelite.rs.api.CombatInfoList;
-import net.runelite.rs.api.CombatInfoListHolder;
-import net.runelite.rs.api.Node;
+import net.runelite.rs.api.*;
 
 public abstract class Actor extends Renderable
 {
@@ -75,6 +72,7 @@ public abstract class Actor extends Renderable
             {
                 CombatInfoListHolder combatInfoListWrapper = (CombatInfoListHolder) next;
                 CombatInfoList combatInfoList2 = combatInfoListWrapper.getCombatInfo1();
+
                 Node node2 = combatInfoList2.getNode();
                 Node next2 = node2.getNext();
                 if (next2 instanceof CombatInfo1)
@@ -82,6 +80,28 @@ public abstract class Actor extends Renderable
                     CombatInfo1 combatInfo = (CombatInfo1) next2;
                     return combatInfo.getHealthRatio();
                 }
+            }
+        }
+        return -1;
+    }
+
+    public int getMaxHealth()
+    {
+        return -1;
+    }
+
+    public int getHealth()
+    {
+        CombatInfoList combatInfoList = actor.getCombatInfoList();
+        if (combatInfoList != null)
+        {
+            Node node = combatInfoList.getNode();
+            Node next = node.getNext();
+            if (next instanceof CombatInfoListHolder)
+            {
+                CombatInfoListHolder combatInfoListWrapper = (CombatInfoListHolder) next;
+                CombatInfo2 cf = combatInfoListWrapper.getCombatInfo2();
+                return cf.getHealthScale();
             }
         }
         return -1;

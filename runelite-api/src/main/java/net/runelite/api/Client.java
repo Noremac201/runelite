@@ -111,7 +111,9 @@ public class Client
     {
         return client.getUsername();
     }
-
+    public void setUsername(String user){
+        client.setUsername(user);
+    }
     public String getLoginMessage2()
     {
         return client.getLoginMessage2();

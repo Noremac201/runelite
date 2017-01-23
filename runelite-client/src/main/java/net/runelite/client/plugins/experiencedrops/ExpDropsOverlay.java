@@ -41,6 +41,8 @@ public class ExpDropsOverlay extends Overlay
         graphics.setColor(Color.white);
         for (Drop d : xp)
         {
+            if (d.getSumXP() == 0)
+                continue;
             String s = String.valueOf(d.getSumXP());
             graphics.drawString(s, 100 - graphics.getFontMetrics().stringWidth(s), d.getY());
 

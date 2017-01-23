@@ -36,7 +36,9 @@ import java.util.List;
 
 public class TopDownRenderer
 {
-    private static final int PADDING = 10;
+    private static final int BORDER_TOP = 25;
+    private static final int BORDER_LEFT = 10;
+    private static final int PADDING = 25;
     private static final int MARGin = 2;
 
     private final List<Overlay> overlays = new ArrayList<>();
@@ -49,7 +51,7 @@ public class TopDownRenderer
     public void render(BufferedImage clientBuffer)
     {
         overlays.sort((o1, o2) -> o2.getPriority().compareTo(o1.getPriority()));
-        int y = 2;
+        int y = BORDER_TOP;
         Client c = RuneLite.getClient();
         for (Overlay overlay : overlays)
         {
@@ -58,7 +60,7 @@ public class TopDownRenderer
             switch (overlay.getPosition())
             {
                 case TOP_LEFT:
-                    image = clientBuffer.getSubimage(PADDING, y, clientBuffer.getWidth() - PADDING, clientBuffer.getHeight() - y);//(int) dimension.getWidth(), (int) dimension.getHeight());
+                    image = clientBuffer.getSubimage(BORDER_LEFT, y, clientBuffer.getWidth() - BORDER_LEFT, clientBuffer.getHeight() - y);//(int) dimension.getWidth(), (int) dimension.getHeight());
                     break;
                 case TOP_RIGHT:
                     image = clientBuffer.getSubimage(0, 0, c.getClientWidth(), 30);

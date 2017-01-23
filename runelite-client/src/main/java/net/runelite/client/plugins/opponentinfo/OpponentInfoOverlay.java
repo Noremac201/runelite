@@ -25,16 +25,15 @@
 
 package net.runelite.client.plugins.opponentinfo;
 
-import net.runelite.api.Actor;
-import net.runelite.api.Client;
-import net.runelite.api.NPC;
-import net.runelite.api.Player;
+import net.runelite.api.*;
 import net.runelite.client.RuneLite;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
 
 import java.awt.*;
+import java.text.DecimalFormat;
+import java.time.Instant;
 
 class OpponentInfoOverlay extends Overlay
 {
@@ -45,10 +44,15 @@ class OpponentInfoOverlay extends Overlay
 
     private static final int BAR_WIDTH = 124;
     private static final int BAR_HEIGHT = 20;
-
+    //private static Font currFont = new Font("Inconsolata", Font.TRUETYPE_FONT, 16);
+    private static DecimalFormat df = new DecimalFormat("0.0");
     private static final Color BACKGROUND = new Color(Color.gray.getRed(), Color.gray.getGreen(), Color.gray.getBlue(), 127);
     private static final Color HP_GREEN = new Color(0, 146, 54, 230);
     private static final Color HP_RED = new Color(102, 15, 16, 230);
+
+    private static float lastRatio = 0;
+    private static Instant lastTime = Instant.now();
+    private static String str = "";
 
     OpponentInfoOverlay()
     {
@@ -69,44 +73,41 @@ class OpponentInfoOverlay extends Overlay
     @Override
     public Dimension render(Graphics2D graphics)
     {
-        Actor opponent = (NPC) getOpponent();
-
-        if (opponent == null)
+        if (RuneLite.getClient().getGameState() != GameState.LOGGED_IN)
             return null;
 
-//		int cur = opponent.getHealth();
-//		int max = opponent.getMaxHealth();
-        int cur = 0, max = 0; // XXX
+        Actor opponent = getOpponent();
 
+        if (opponent != null && opponent.getHealth() != -1)
+        {
+            lastTime = Instant.now();
+            lastRatio = (float) opponent.getHealthRatio() / (float) opponent.getHealth() * 100;
+            str = opponent.getName() + " (" + opponent.getID() + ")";
+        }
+
+        if (Instant.now().toEpochMilli() - lastTime.toEpochMilli() > 3000) //and 3 seconds have passed.
+            return null;
+
+        //graphics.setFont(currFont);
         FontMetrics fm = graphics.getFontMetrics();
 
         int height = TOP_BORDER
                 + fm.getHeight(); // opponent name
-        if (max > 0)
-            height += 1 // between name and hp bar
+        if (lastRatio >= 0)
+            height += 2 // between name and hp bar
                     + BAR_HEIGHT; // bar
         height += BOTTOM_BORDER;
 
         graphics.setColor(BACKGROUND);
         graphics.fillRect(0, 0, WIDTH, height);
 
-        String str = opponent.getName();
-
         int x = (WIDTH - fm.stringWidth(str)) / 2;
         graphics.setColor(Color.white);
         graphics.drawString(str, x, fm.getHeight() + TOP_BORDER);
 
-        // hp bar
-        System.out.println(opponent.getHealthRatio());
-        System.out.println(opponent.getID());
-
-        if (max > 0)
+        if (lastRatio >= 0)
         {
-            float percent = (float) cur / (float) max;
-            if (percent > 100f)
-                percent = 100f;
-
-            int barWidth = (int) (percent * (float) BAR_WIDTH);
+            int barWidth = (int) (lastRatio / 100 * (float) BAR_WIDTH);
             int barY = TOP_BORDER + fm.getHeight() + 1;
 
             graphics.setColor(HP_GREEN);
@@ -115,11 +116,9 @@ class OpponentInfoOverlay extends Overlay
             graphics.setColor(HP_RED);
             graphics.fillRect(((WIDTH - BAR_WIDTH) / 2) + barWidth, barY, BAR_WIDTH - barWidth, BAR_HEIGHT);
 
-            str = cur + " / " + max;
-            x = (WIDTH - fm.stringWidth(str)) / 2;
             graphics.setColor(Color.white);
-            graphics.drawString(str, x, barY + fm.getHeight());
-
+            String percent = df.format(lastRatio);
+            graphics.drawString(percent, (WIDTH - fm.stringWidth(percent)) / 2, barY + fm.getHeight());
         }
 
         return new Dimension(WIDTH, height);
