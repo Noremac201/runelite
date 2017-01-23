@@ -25,6 +25,7 @@
 
 package net.runelite.client.ui;
 
+import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.WindowAdapter;
@@ -32,7 +33,6 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
-import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -41,6 +41,7 @@ public final class ClientUI extends JFrame
     private ClientPanel clientPanel;
     private PluginPanel pluginPanel;
 
+<<<<<<< HEAD
     public ClientUI() throws Exception
     {
         init();
@@ -50,24 +51,25 @@ public final class ClientUI extends JFrame
         setMinimumSize(getSize());
         setResizable(true);
     }
+=======
+	public ClientUI() throws Exception
+	{
+		init();
+		pack();
+		setTitle("RuneLite");
+		setLocationRelativeTo(getOwner());
+		setMinimumSize(getSize());
+		setResizable(true);
+	}
+	
+	private void init() throws Exception
+	{
+		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+>>>>>>> 151d0c4cee5aaa7813e320e77bef737aa3145408
 
-		addWindowListener(new WindowAdapter()
-		{
-			@Override
-			public void windowClosing(WindowEvent e)
-			{
-				checkExit();
-			}
-		});
-		
-		JPopupMenu.setDefaultLightWeightPopupEnabled(false);
-		try
-		{
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		}
-		catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored)
-		{
-		}
+    private void init() throws Exception
+    {
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
         addWindowListener(new WindowAdapter()
         {
@@ -78,6 +80,35 @@ public final class ClientUI extends JFrame
             }
         });
 
+<<<<<<< HEAD
+        JPopupMenu.setDefaultLightWeightPopupEnabled(false);
+        try
+        {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored)
+        {
+        }
+
+        clientPanel = new ClientPanel();
+        pluginPanel = new PluginPanel();
+        //add(pluginPanel);
+        add(clientPanel);
+        //pluginPanel.setAlignmentX(Component.RIGHT_ALIGNMENT);
+        setBackground(Color.black);
+
+    }
+
+    private void checkExit()
+    {
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Exit", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (result == JOptionPane.OK_OPTION)
+        {
+            System.exit(0);
+        }
+    }
+}
+=======
 	private void checkExit()
 	{
 		int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Exit", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -87,25 +118,5 @@ public final class ClientUI extends JFrame
 			System.exit(0);
 		}
 	}
-
-	@Override
-	public void componentResized(ComponentEvent e)
-	{
-		SwingUtilities.invokeLater(() -> pack()); // is this right?
-	}
-
-	@Override
-	public void componentMoved(ComponentEvent e)
-	{
-	}
-
-	@Override
-	public void componentShown(ComponentEvent e)
-	{
-	}
-
-	@Override
-	public void componentHidden(ComponentEvent e)
-	{
-	}
 }
+>>>>>>> 151d0c4cee5aaa7813e320e77bef737aa3145408
