@@ -22,55 +22,71 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.deob.deobfuscators;
+package net.runelite.deob.deobfuscators.lvt;
 
-import java.util.ArrayList;
-import net.runelite.asm.ClassFile;
-import net.runelite.asm.ClassGroup;
-import net.runelite.asm.Method;
-import net.runelite.asm.execution.Execution;
-import net.runelite.asm.signature.Signature;
-import net.runelite.deob.Deob;
-import net.runelite.deob.Deobfuscator;
+import java.util.HashMap;
+import java.util.Map;
+import net.runelite.asm.attributes.code.instruction.types.LVTInstructionType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class UnusedMethods implements Deobfuscator
+public class Mappings
 {
-	private static final String INIT = "<init>";
-	private static final Signature INIT_SIG = new Signature("()V");
+	private static final Logger logger = LoggerFactory.getLogger(Mappings.class);
 
-	@Override
-	public void run(ClassGroup group)
+	private final int maxVariables;
+	private int offset;
+	private Map<Integer, LVTType> map = new HashMap<>();
+	private Map<MapKey, Integer> newIdxMap = new HashMap<>();
+
+	public Mappings(int maxVariables)
 	{
-		group.buildClassGraph();
+		this.maxVariables = maxVariables;
+	}
 
-		Execution execution = new Execution(group);
-		execution.populateInitialMethods();
-		execution.run();
-
-		int i = 0;
-		for (ClassFile cf : group.getClasses())
+	private static LVTType toLvtType(LVTInstructionType type)
+	{
+		switch (type)
 		{
-			for (Method m : new ArrayList<>(cf.getMethods().getMethods()))
-			{
-				if (!Deob.isObfuscated(m.getName()) && !m.getName().equals("<init>"))
-				{
-					continue;
-				}
-				
-				if (m.getName().endsWith(INIT) && m.getDescriptor().equals(INIT_SIG))
-				{
-					// never remove default constructor
-					continue;
-				}
+			case DOUBLE:
+			case LONG:
+				return LVTType.LONG;
+			case FLOAT:
+			case INT:
+				return LVTType.INT;
+			case OBJECT:
+				return LVTType.OBJECT;
+			default:
+				throw new IllegalArgumentException("Unknown type " + type);
+		}
+	}
 
-				if (!execution.methods.contains(m))
-				{
-					cf.getMethods().removeMethod(m);
-					++i;
-				}
+	public Integer remap(int idx, LVTInstructionType type)
+	{
+		LVTType seen = map.get(idx);
+
+		if (seen == null)
+		{
+			map.put(idx, toLvtType(type));
+		}
+		else if (toLvtType(type) != seen)
+		{
+			MapKey key = new MapKey(idx, toLvtType(type));
+
+			Integer newIdx = newIdxMap.get(key);
+			if (newIdx == null)
+			{
+				newIdx = maxVariables + offset;
+				newIdxMap.put(key, newIdx);
+
+				logger.debug("Mapping {} -> {}", idx, newIdx);
+
+				offset += type.getSlots();
 			}
+
+			return newIdx;
 		}
 
-		System.out.println("Removed " + i + " methods");
+		return null;
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2017, Adam <Adam@sigterm.info>
+ * Copyright (c) 2017, Adam <Adam@sigterm.info>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,55 +22,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.deob.deobfuscators;
+package net.runelite.deob.deobfuscators.lvt;
 
-import java.util.ArrayList;
-import net.runelite.asm.ClassFile;
-import net.runelite.asm.ClassGroup;
-import net.runelite.asm.Method;
-import net.runelite.asm.execution.Execution;
-import net.runelite.asm.signature.Signature;
-import net.runelite.deob.Deob;
-import net.runelite.deob.Deobfuscator;
-
-public class UnusedMethods implements Deobfuscator
+public enum LVTType
 {
-	private static final String INIT = "<init>";
-	private static final Signature INIT_SIG = new Signature("()V");
-
-	@Override
-	public void run(ClassGroup group)
-	{
-		group.buildClassGraph();
-
-		Execution execution = new Execution(group);
-		execution.populateInitialMethods();
-		execution.run();
-
-		int i = 0;
-		for (ClassFile cf : group.getClasses())
-		{
-			for (Method m : new ArrayList<>(cf.getMethods().getMethods()))
-			{
-				if (!Deob.isObfuscated(m.getName()) && !m.getName().equals("<init>"))
-				{
-					continue;
-				}
-				
-				if (m.getName().endsWith(INIT) && m.getDescriptor().equals(INIT_SIG))
-				{
-					// never remove default constructor
-					continue;
-				}
-
-				if (!execution.methods.contains(m))
-				{
-					cf.getMethods().removeMethod(m);
-					++i;
-				}
-			}
-		}
-
-		System.out.println("Removed " + i + " methods");
-	}
+	INT,
+	LONG,
+	OBJECT
 }
