@@ -118,7 +118,7 @@ class OpponentInfoOverlay extends Overlay
 
             graphics.setColor(Color.white);
             String percent = df.format(lastRatio);
-            graphics.drawString(percent, (WIDTH - fm.stringWidth(percent)) / 2, barY + fm.getHeight());
+            graphics.drawString(percent +"%", (WIDTH - fm.stringWidth(percent + "%")) / 2, barY + fm.getHeight());
         }
 
         return new Dimension(WIDTH, height);

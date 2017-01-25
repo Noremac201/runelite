@@ -812,6 +812,7 @@ public final class Client extends GameEngine {
    static int[] widgetBoundsWidth;
    @ObfuscatedName("cg")
    @Export("cachedNPCs")
+   @Hook("npcChanged")
    static NPC[] cachedNPCs;
    @ObfuscatedName("kh")
    static Deque field492;

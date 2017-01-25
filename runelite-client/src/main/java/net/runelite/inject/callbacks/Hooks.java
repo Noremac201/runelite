@@ -26,6 +26,7 @@ package net.runelite.inject.callbacks;
 
 import net.runelite.client.RuneLite;
 import net.runelite.client.events.ExperienceChanged;
+import net.runelite.client.plugins.debug.DebugOverlay;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,6 +48,9 @@ public class Hooks
         {
             case "experienceChanged":
                 runelite.getEventBus().post(new ExperienceChanged());
+                break;
+            case "npcChanged":
+                runelite.getEventBus().post(DebugOverlay.npcChange = true);
                 break;
             default:
                 logger.warn("Unknown event {} triggered on {}", name, object);

@@ -38,8 +38,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public final class ClientUI extends JFrame
 {
-    private ClientPanel clientPanel;
-    private PluginPanel pluginPanel;
+    private ClientPanel panel;
 
     public ClientUI() throws Exception
     {
@@ -51,23 +50,9 @@ public final class ClientUI extends JFrame
         setResizable(true);
     }
 
-		addWindowListener(new WindowAdapter()
-		{
-			@Override
-			public void windowClosing(WindowEvent e)
-			{
-				checkExit();
-			}
-		});
-		
-		JPopupMenu.setDefaultLightWeightPopupEnabled(false);
-		try
-		{
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		}
-		catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored)
-		{
-		}
+    private void init() throws Exception
+    {
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
         addWindowListener(new WindowAdapter()
         {
@@ -78,34 +63,25 @@ public final class ClientUI extends JFrame
             }
         });
 
-	private void checkExit()
-	{
-		int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Exit", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
-		
-		if (result == JOptionPane.OK_OPTION)
-		{
-			System.exit(0);
-		}
-	}
+        JPopupMenu.setDefaultLightWeightPopupEnabled(false);
+        try
+        {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored)
+        {
+        }
 
-	@Override
-	public void componentResized(ComponentEvent e)
-	{
-		SwingUtilities.invokeLater(() -> pack()); // is this right?
-	}
+        panel = new ClientPanel();
+        add(panel);
+    }
 
-	@Override
-	public void componentMoved(ComponentEvent e)
-	{
-	}
+    private void checkExit()
+    {
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Exit", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
 
-	@Override
-	public void componentShown(ComponentEvent e)
-	{
-	}
-
-	@Override
-	public void componentHidden(ComponentEvent e)
-	{
-	}
+        if (result == JOptionPane.OK_OPTION)
+        {
+            System.exit(0);
+        }
+    }
 }

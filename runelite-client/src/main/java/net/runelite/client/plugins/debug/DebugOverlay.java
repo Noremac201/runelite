@@ -1,20 +1,17 @@
 package net.runelite.client.plugins.debug;
 
+import com.google.common.collect.Sets;
 import net.runelite.api.*;
 import net.runelite.client.RuneLite;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
-import net.runelite.rs.api.ChatMessages;
-import net.runelite.rs.api.MessageNode;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.time.Instant;
 import java.util.Arrays;
-import java.util.Random;
+import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  * Created by bold on 1/19/17.
@@ -22,33 +19,42 @@ import java.util.Random;
 public class DebugOverlay extends Overlay
 {
     private static Client c = RuneLite.getClient();
-    private static Instant t = Instant.now();
-    private static int[] old;
-    private static int[] zz;
-    private static boolean sent = false;
+    private static HashSet<NPC> npc1;
+    private static HashSet<NPC> npc2;
+    public static boolean npcChange = false;
+    private static int npcChangeCount = 0;
 
     public DebugOverlay(OverlayPosition position, OverlayPriority priority)
     {
         super(position, priority);
     }
 
-    private Actor getOpponent()
-    {
-        Client client = RuneLite.getClient();
-
-        Player player = client.getLocalPlayer();
-        if (player == null)
-            return null;
-
-        return player.getInteracting();
-    }
-
     @Override
     public Dimension render(Graphics2D graphics)
     {
-        if (RuneLite.getClient().getGameState() != GameState.LOGIN_SCREEN)
+        if (RuneLite.getClient().getGameState() == GameState.LOGIN_SCREEN)
+            RuneLite.getClient().setUsername("noremac201");
+        if (RuneLite.getClient().getGameState() != GameState.LOGGED_IN)
             return null;
-        RuneLite.getClient().setUsername("noremac201");
+
+        if (!npcChange)
+            return null;
+        npcChange = false;
+        RuneLite.getClient().sendGameMessage("hellO");
+        NPC[] arr = RuneLite.getClient().getNpcs();
+        npc1 = new HashSet<>(Arrays.asList(arr));
+
+        if (npcChangeCount++ == 0)
+            npc2 = new HashSet<>(Arrays.asList(RuneLite.getClient().getNpcs()));
+
+        Sets.SetView<NPC> diff = Sets.difference(npc1, npc2);
+        if (diff.isEmpty())
+            return null;
+        Iterator<NPC> iter = diff.iterator();
+        while (iter.hasNext())
+        {
+            System.out.println(iter.next().getName());
+        }
         return null;
     }
 }
