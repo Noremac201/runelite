@@ -25,6 +25,7 @@
 
 package net.runelite.api;
 
+import net.runelite.mapping.Export;
 import net.runelite.rs.api.CombatInfo1;
 import net.runelite.rs.api.MessageNode;
 
@@ -79,7 +80,7 @@ public class Client
 
     public void sendGameMessage(String message)
     {
-        client.sendGameMessage(2, "", message);
+        client.sendGameMessage(99, "", message);
     }
 
     public GameState getGameState()
@@ -111,9 +112,12 @@ public class Client
     {
         return client.getUsername();
     }
-    public void setUsername(String user){
+
+    public void setUsername(String user)
+    {
         client.setUsername(user);
     }
+
     public String getLoginMessage2()
     {
         return client.getLoginMessage2();
@@ -129,8 +133,20 @@ public class Client
         return client.isResized();
     }
 
-    public String[] getMessages()
+    public void addChatMessage(int var0, String var1, String var2, String var3)
     {
-        return client.getChatMessages().getMessages();
+        client.addChatMessage(var0, var1, var2, var3);
     }
+
+    public int getPacketOpcode()
+    {
+        return client.getPacketOpcode();
+    }
+
+    public void addMenuEntry(String var0, String var1, int var2, int var3, int var4, int var5)
+    {
+        client.addMenuEntry(var0, var1, var2, var3, var4, var5);
+    }
+
+
 }

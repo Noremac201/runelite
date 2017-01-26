@@ -23,6 +23,7 @@ public class DebugOverlay extends Overlay
     private static HashSet<NPC> npc2;
     public static boolean npcChange = false;
     private static int npcChangeCount = 0;
+    private static Instant t = Instant.now();
 
     public DebugOverlay(OverlayPosition position, OverlayPriority priority)
     {
@@ -36,25 +37,20 @@ public class DebugOverlay extends Overlay
             RuneLite.getClient().setUsername("noremac201");
         if (RuneLite.getClient().getGameState() != GameState.LOGGED_IN)
             return null;
+        c.addMenuEntry("hello", "there", 30, 0, 0, 0);
 
-        if (!npcChange)
-            return null;
-        npcChange = false;
-        RuneLite.getClient().sendGameMessage("hellO");
-        NPC[] arr = RuneLite.getClient().getNpcs();
-        npc1 = new HashSet<>(Arrays.asList(arr));
-
-        if (npcChangeCount++ == 0)
-            npc2 = new HashSet<>(Arrays.asList(RuneLite.getClient().getNpcs()));
-
-        Sets.SetView<NPC> diff = Sets.difference(npc1, npc2);
-        if (diff.isEmpty())
-            return null;
-        Iterator<NPC> iter = diff.iterator();
-        while (iter.hasNext())
+        if (Instant.now().toEpochMilli() - t.toEpochMilli() > 1000)
         {
-            System.out.println(iter.next().getName());
+
+            t = Instant.now();
+            for (Player p : c.getPlayers())
+            {
+                if (p == null)
+                    continue;
+                //p.addPlayerActions(10, 10, 10);
+            }
         }
         return null;
+
     }
 }

@@ -25,6 +25,7 @@
 
 package net.runelite.rs.api;
 
+import net.runelite.mapping.Export;
 import net.runelite.mapping.Import;
 
 import java.awt.*;
@@ -160,6 +161,9 @@ public interface Client extends GameEngine
     @Import("sendGameMessage")
     void sendGameMessage(int var1, String var2, String var3);
 
+    @Import("addChatMessage")
+    void addChatMessage(int typeOfMessage, String sender, String contents, String var3);
+
     //void hopToWorld(String var1, int var2, int var3);
 
     @Import("objectDefinition")
@@ -218,9 +222,8 @@ public interface Client extends GameEngine
     @Import("loginMessage2")
     String getLoginMessage2();
 
-    @Import("chatMessages")
-    ChatMessages getChatMessages();
+    @Import("addMenuEntry")
+    void addMenuEntry(String var0, String var1, int var2, int var3, int var4, int var5);
 
-    @Import("lines")
-    MessageNode[] getLines();
+
 }

@@ -1,9 +1,7 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.mapping.*;
 
 @ObfuscatedName("gp")
+@Implements("Varps")
 public abstract class class182 {
    @ObfuscatedName("c")
    int[] field2711;
