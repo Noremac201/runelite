@@ -26,11 +26,13 @@
 package net.runelite.api;
 
 import net.runelite.mapping.Export;
+import net.runelite.rs.api.ChatLineBuffer;
 import net.runelite.rs.api.CombatInfo1;
 import net.runelite.rs.api.MessageNode;
 
 import java.awt.*;
 import java.util.Arrays;
+import java.util.Map;
 
 public class Client
 {
@@ -148,5 +150,29 @@ public class Client
         client.addMenuEntry(var0, var1, var2, var3, var4, var5);
     }
 
+    public int getGameCycle()
+    {
+        return client.getGameCycle();
+    }
 
+    //messages sent by localPlayer.
+    public String[] getMessages()
+    {
+        return client.getChatMessages().getMessages();
+    }
+
+    public Map<Integer, ChatLineBuffer> getChatLineMap()
+    {
+        return client.getChatLineMap();
+    }
+
+    public int getTotalNPC()
+    {
+        return client.getTotalNPC();
+    }
+
+    public int[] getTotalNPCArr()
+    {
+        return client.getTotalNPCArr();
+    }
 }

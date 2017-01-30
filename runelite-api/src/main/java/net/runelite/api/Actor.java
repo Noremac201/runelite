@@ -107,6 +107,16 @@ public abstract class Actor extends Renderable
         return -1;
     }
 
+    public int getX()
+    {
+        return actor.getX();
+    }
+
+    public int getY()
+    {
+        return actor.getY();
+    }
+
     public int getID()
     {
         return -1;

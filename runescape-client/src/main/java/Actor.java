@@ -228,6 +228,7 @@ public abstract class Actor extends Renderable {
    @ObfuscatedGetter(
       intValue = 1271100081
    )
+   @Export("npcField641")
    int field641 = 0;
    @ObfuscatedName("cl")
    @ObfuscatedGetter(

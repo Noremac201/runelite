@@ -37,6 +37,11 @@ public class NPC extends Actor
         this.npc = npc;
     }
 
+    public NPCComposition getComposition()
+    {
+        return npc.getComposition();
+    }
+
     public int getCombatLevel()
     {
         return npc.getComposition().getCombatLevel();
@@ -52,4 +57,5 @@ public class NPC extends Actor
     {
         return npc.getComposition().getName();
     }
+
 }

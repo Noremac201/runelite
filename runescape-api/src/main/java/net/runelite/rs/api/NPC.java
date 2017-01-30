@@ -31,4 +31,5 @@ public interface NPC extends Actor
 {
     @Import("composition")
     NPCComposition getComposition();
+
 }

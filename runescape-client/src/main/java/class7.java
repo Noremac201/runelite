@@ -1,4 +1,6 @@
 import java.util.Comparator;
+
+import net.runelite.mapping.Hook;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
@@ -274,6 +276,7 @@ final class class7 implements Comparator {
 
          for(var1 = 0; var1 < Client.field402; ++var1) {
             var2 = Client.field403[var1];
+
             if(Client.cachedNPCs[var2].field641 != Client.gameCycle) {
                Client.cachedNPCs[var2].composition = null;
                Client.cachedNPCs[var2] = null;

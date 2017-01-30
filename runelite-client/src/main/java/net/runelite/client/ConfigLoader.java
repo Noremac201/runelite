@@ -79,11 +79,6 @@ public class ConfigLoader
                     str = str.substring(idx + 1);
                     idx = str.indexOf('=');
                     s = str.substring(0, idx);
-                    if (s.equals("13"))
-                    {
-                        appletProperties.put(s, "373");
-                        continue;
-                    }
                     appletProperties.put(s, str.substring(idx + 1));
                 } else if (s.equals("msg"))
                 {

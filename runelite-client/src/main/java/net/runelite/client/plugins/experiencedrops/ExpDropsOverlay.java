@@ -44,8 +44,8 @@ public class ExpDropsOverlay extends Overlay
             if (d.getSumXP() == 0)
                 continue;
             String s = String.valueOf(d.getSumXP());
-            graphics.drawString(s, 100 - graphics.getFontMetrics().stringWidth(s), d.getY());
-
+            graphics.drawString(s, 0, d.getY());
+///100 - graphics.getFontMetrics().stringWidth(s)
             if (d.getY() <= graphics.getFontMetrics().getHeight())
                 xp.remove(d);
             d.setY(d.getY() - 2);

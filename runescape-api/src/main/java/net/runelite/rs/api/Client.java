@@ -29,6 +29,7 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.Import;
 
 import java.awt.*;
+import java.util.Map;
 
 public interface Client extends GameEngine
 {
@@ -225,5 +226,15 @@ public interface Client extends GameEngine
     @Import("addMenuEntry")
     void addMenuEntry(String var0, String var1, int var2, int var3, int var4, int var5);
 
+    @Import("chatMessages")
+    ChatMessages getChatMessages();
 
+    @Import("chatLineMap")
+    Map getChatLineMap();
+
+    @Import("totalNPC")
+    int getTotalNPC();
+
+    @Import("totalNPCArr")
+    int[] getTotalNPCArr();
 }

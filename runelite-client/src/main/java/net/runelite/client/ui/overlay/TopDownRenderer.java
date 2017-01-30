@@ -38,7 +38,7 @@ public class TopDownRenderer
 {
     private static final int BORDER_TOP = 25;
     private static final int BORDER_LEFT = 10;
-    private static final int PADDING = 25;
+    private static final int PADDING = 2;
     private static final int MARGin = 2;
 
     private final List<Overlay> overlays = new ArrayList<>();

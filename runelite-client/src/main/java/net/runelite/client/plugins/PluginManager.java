@@ -31,6 +31,7 @@ import java.util.List;
 
 import net.runelite.client.RuneLite;
 import net.runelite.client.plugins.boosts.Boosts;
+import net.runelite.client.plugins.bosstimers.BossTimers;
 import net.runelite.client.plugins.debug.Debug;
 import net.runelite.client.plugins.experiencedrops.ExperienceDrops;
 import net.runelite.client.plugins.fpsinfo.FPS;
@@ -53,6 +54,7 @@ public class PluginManager
         load(new FPS());
         load(new ExperienceDrops());
         load(new Debug());
+        load(new BossTimers());
     }
 
     private void load(Plugin plugin)

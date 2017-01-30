@@ -41,6 +41,7 @@ public final class Client extends GameEngine {
    static boolean field283 = false;
    @ObfuscatedName("cf")
    @Export("cachedNPCs")
+   @Hook("npcChange")
    static NPC[] cachedNPCs;
    @ObfuscatedName("z")
    @ObfuscatedGetter(
@@ -530,8 +531,10 @@ public final class Client extends GameEngine {
    @ObfuscatedGetter(
       intValue = 1599962593
    )
+   @Export("totalNPC")
    static int field402;
    @ObfuscatedName("hk")
+   @Export("totalNPCArr")
    static int[] field403;
    @ObfuscatedName("hh")
    static final int[] field404;
@@ -3218,7 +3221,9 @@ public final class Client extends GameEngine {
       signature = "(II)Ljava/lang/String;",
       garbageValue = "-229565322"
    )
+   @Export("messageReceived")
    static String method568(int var0) {
+      System.out.println("message recieved");
       return "<col=" + Integer.toHexString(var0) + ">";
    }
 

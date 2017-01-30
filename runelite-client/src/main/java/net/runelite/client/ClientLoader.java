@@ -32,6 +32,8 @@ import java.net.MalformedURLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.swing.*;
+
 public class ClientLoader
 {
     private static final Logger logger = LoggerFactory.getLogger(ClientLoader.class);
