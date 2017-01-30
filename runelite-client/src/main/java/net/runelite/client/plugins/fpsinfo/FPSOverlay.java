@@ -14,7 +14,6 @@ import java.awt.*;
  */
 public class FPSOverlay extends Overlay
 {
-    private static Font currFont = new Font("Inconsolata", Font.TRUETYPE_FONT, 16);
     private static Client client = RuneLite.getClient();
 
     public FPSOverlay()
@@ -28,7 +27,6 @@ public class FPSOverlay extends Overlay
 
         if (client.getGameState() != GameState.LOGGED_IN)
             return null;
-        graphics.setFont(currFont);
 
         FontMetrics fm = graphics.getFontMetrics();
         String str = String.valueOf(client.getFPS());
