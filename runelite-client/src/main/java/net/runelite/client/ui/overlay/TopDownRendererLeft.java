@@ -34,7 +34,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TopDownRenderer
+public class TopDownRendererLeft
 {
     private static final int BORDER_TOP = 25;
     private static final int BORDER_LEFT = 10;
@@ -77,10 +77,10 @@ public class TopDownRenderer
             Dimension dimension = overlay.render(graphics);
             graphics.dispose();
 
-            if (dimension == null)
-                continue;
-            if (overlay.getPosition() == OverlayPosition.TOP_LEFT)
-                y += dimension.getHeight() + PADDING;
-        }
-    }
+			if (dimension == null)
+				continue;
+
+			y += dimension.getHeight() + PADDING;
+		}
+	}
 }

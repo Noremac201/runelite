@@ -29,7 +29,6 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.Import;
 
 import java.awt.*;
-import java.util.Map;
 
 public interface Client extends GameEngine
 {
@@ -235,6 +234,9 @@ public interface Client extends GameEngine
     @Import("totalNPC")
     int getTotalNPC();
 
-    @Import("totalNPCArr")
-    int[] getTotalNPCArr();
+	@Import("packetHandler")
+	void packetHandler();
+
+	@Import("canvas")
+	Canvas getCanvas();
 }

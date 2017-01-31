@@ -23,51 +23,48 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package net.runelite.asm.pool;
+package net.runelite.client.ui.overlay;
 
-import net.runelite.asm.execution.Type;
+import net.runelite.api.Client;
+import net.runelite.client.RuneLite;
 
-public class Class
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TopDownRendererRight
 {
-	private java.lang.String name;
-	
-	public Class(java.lang.String name)
+	private static final int BORDER_TOP = 0;
+	private static final int BORDER_RIGHT = 0;
+	private static final int PADDING = 10;
+
+	private final List<Overlay> overlays = new ArrayList<>();
+
+	public void add(Overlay overlay)
 	{
-		this.name = name;
-	}
-	
-	public Class(java.lang.String name, int dimms)
-	{
-		while (dimms-- > 0)
-			name = "[" + name;
-		
-		this.name = name;
+		overlays.add(overlay);
 	}
 
-	@Override
-	public java.lang.String toString()
+	public void render(BufferedImage clientBuffer)
 	{
-		return name;
-	}
-	
-	@Override
-	public boolean equals(Object other)
-	{
-		if (!(other instanceof Class))
-			return false;
-		
-		Class c = (Class) other;
-		return name.equals(c.name);
-	}
-	
-	@Override
-	public int hashCode()
-	{
-		return name.hashCode();
+		Client client = RuneLite.getClient();
+		overlays.sort((o1, o2) -> o2.getPriority().compareTo(o1.getPriority()));
+		int y = BORDER_TOP;
+
+		for (Overlay overlay : overlays)
+		{
+			BufferedImage image = clientBuffer.getSubimage(BORDER_RIGHT, y, client.getClientWidth(), 25);
+
+			Graphics2D graphics = image.createGraphics();
+			Dimension dimension = overlay.render(graphics);
+			graphics.dispose();
+
+			if (dimension == null)
+				continue;
+
+			y += dimension.getHeight() + PADDING;
+		}
 	}
 
-	public String getName()
-	{
-		return name;
-	}
 }

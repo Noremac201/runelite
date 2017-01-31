@@ -25,154 +25,83 @@
 
 package net.runelite.api;
 
-import net.runelite.mapping.Export;
-import net.runelite.rs.api.ChatLineBuffer;
-import net.runelite.rs.api.CombatInfo1;
-import net.runelite.rs.api.MessageNode;
-
 import java.awt.*;
 import java.util.Arrays;
 import java.util.Map;
 
 public class Client
 {
-    private net.runelite.rs.api.Client client;
+	private net.runelite.rs.api.Client client;
 
-    public Client(net.runelite.rs.api.Client client)
-    {
-        this.client = client;
-    }
+	public Client(net.runelite.rs.api.Client client)
+	{
+		this.client = client;
+	}
 
-    public Player getLocalPlayer()
-    {
-        if (client.getLocalPlayer() == null)
-            return null;
+	public Player getLocalPlayer()
+	{
+		if (client.getLocalPlayer() == null)
+			return null;
 
-        return new Player(this, client.getLocalPlayer());
-    }
+		return new Player(this, client.getLocalPlayer());
+	}
 
-    public NPC[] getNpcs()
-    {
-        return Arrays.stream(client.getCachedNPCs())
-                .map(npc -> npc != null ? new NPC(this, npc) : null)
-                .toArray(size -> new NPC[size]);
-    }
+	public NPC[] getNpcs()
+	{
+		return Arrays.stream(client.getCachedNPCs())
+				.map(npc -> npc != null ? new NPC(this, npc) : null)
+				.toArray(size -> new NPC[size]);
+	}
 
-    public Player[] getPlayers()
-    {
-        return Arrays.stream(client.getCachedPlayers())
-                .map(player -> player != null ? new Player(this, player) : null)
-                .toArray(size -> new Player[size]);
-    }
+	public Player[] getPlayers()
+	{
+		return Arrays.stream(client.getCachedPlayers())
+				.map(player -> player != null ? new Player(this, player) : null)
+				.toArray(size -> new Player[size]);
+	}
 
-    public int[] getBoostedSkillLevels()
-    {
-        return client.getBoostedSkillLevels();
-    }
+	public int[] getBoostedSkillLevels()
+	{
+		return client.getBoostedSkillLevels();
+	}
 
-    public int[] getRealSkillLevels()
-    {
-        return client.getRealSkillLevels();
-    }
+	public int[] getRealSkillLevels()
+	{
+		return client.getRealSkillLevels();
+	}
 
-    public int[] getSkillExperiences()
-    {
-        return client.getSkillExperiences();
-    }
+	public int[] getSkillExperiences()
+	{
+		return client.getSkillExperiences();
+	}
 
-    public void sendGameMessage(String message)
-    {
-        client.sendGameMessage(99, "", message);
-    }
+	public void sendGameMessage(String message)
+	{
+		client.sendGameMessage(99, "", message);
+	}
 
-    public GameState getGameState()
-    {
-        return GameState.of(client.getGameState());
-    }
+	public GameState getGameState()
+	{
+		return GameState.of(client.getGameState());
+	}
 
-    public int getFPS()
-    {
-        return client.getFPS();
-    }
+	public Canvas getCanvas()
+	{
+		return client.getCanvas();
+	}
 
-    public Canvas getCanvas()
-    {
-        return client.getCanvas();
-    }
+	public int getFPS()
+	{
+		return client.getFPS();
+	}
 
-    public int getClientWidth()
-    {
-        return client.getCanvas().getWidth();
-    }
+	public int getClientHeight()
+	{
+		return client.getCanvas().getHeight();
+	}
 
-    public int getClientHeight()
-    {
-        return client.getCanvas().getHeight();
-    }
-
-    public String getUsername()
-    {
-        return client.getUsername();
-    }
-
-    public void setUsername(String user)
-    {
-        client.setUsername(user);
-    }
-
-    public String getLoginMessage2()
-    {
-        return client.getLoginMessage2();
-    }
-
-    public int[] getWidgetSettings()
-    {
-        return client.getWidgetSettings();
-    }
-
-    public boolean isResized()
-    {
-        return client.isResized();
-    }
-
-    public void addChatMessage(int var0, String var1, String var2, String var3)
-    {
-        client.addChatMessage(var0, var1, var2, var3);
-    }
-
-    public int getPacketOpcode()
-    {
-        return client.getPacketOpcode();
-    }
-
-    public void addMenuEntry(String var0, String var1, int var2, int var3, int var4, int var5)
-    {
-        client.addMenuEntry(var0, var1, var2, var3, var4, var5);
-    }
-
-    public int getGameCycle()
-    {
-        return client.getGameCycle();
-    }
-
-    //messages sent by localPlayer.
-    public String[] getMessages()
-    {
-        return client.getChatMessages().getMessages();
-    }
-
-    public Map<Integer, ChatLineBuffer> getChatLineMap()
-    {
-        return client.getChatLineMap();
-    }
-
-    public int getTotalNPC()
-    {
-        return client.getTotalNPC();
-    }
-
-    public int[] getTotalNPCArr()
-    {
-        return client.getTotalNPCArr();
-    }
+	public int getClientWidth()
+	{
+		return client.getCanvas().getWidth();
+	}
 }
