@@ -25,12 +25,18 @@
 
 package net.runelite.client.events;
 
-import net.runelite.client.plugins.experiencedrops.ExpDropsOverlay;
-
 public class ExperienceChanged
 {
-    public ExperienceChanged()
-    {
-        ExpDropsOverlay.expChangeFlag = true;
-    }
+	/** the index in the array which changed */
+	private int index;
+
+	public int getIndex()
+	{
+		return index;
+	}
+
+	public void setIndex(int index)
+	{
+		this.index = index;
+	}
 }
