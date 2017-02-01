@@ -10,7 +10,7 @@ import net.runelite.client.ui.overlay.OverlayPriority;
  */
 public class Debug extends Plugin
 {
-    private final Overlay overlay = new DebugOverlay(OverlayPosition.CUSTOM, OverlayPriority.HIGH);
+    private final Overlay overlay = new DebugOverlay(OverlayPosition.TOP_LEFT, OverlayPriority.HIGH);
 
 
     @Override

@@ -47,8 +47,8 @@ public class Hooks
 		{
 			case "experienceChanged":
 			{
-				ExperienceChanged experienceChanged = new ExperienceChanged();
-				experienceChanged.setIndex(idx);
+				ExperienceChanged experienceChanged = new ExperienceChanged(idx);
+				//experienceChanged.setIndex(idx);
 				runelite.getEventBus().post(experienceChanged);
 				break;
 			}

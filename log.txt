@@ -2002,3 +2002,1007 @@ Processed 37 frames
 [INFO] Finished at: 2017-01-25T16:17:34-06:00
 [INFO] Final Memory: 29M/297M
 [INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Runelite
+[INFO] RuneScape API
+[INFO] Runelite API
+[INFO] Cache
+[INFO] Deobfuscator
+[INFO] Model Viewer
+[INFO] Model Viewer (RSMV)
+[INFO] RuneScape Client
+[INFO] Injector Plugin
+[INFO] Injector
+[INFO] Runelite Client
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Runelite 1.1.19-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ runelite-parent ---
+[INFO] Installing /home/bold/IdeaProjects/rLite/pom.xml to /home/bold/.m2/repository/net/runelite/runelite-parent/1.1.19-SNAPSHOT/runelite-parent-1.1.19-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building RuneScape API 132.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/runescape-api/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 53 source files to /home/bold/IdeaProjects/rLite/runescape-api/target/classes
+[WARNING] /home/bold/IdeaProjects/rLite/runescape-api/src/main/java/net/runelite/rs/api/ChatLineBuffer.java:[3,53] com.sun.corba.se.impl.protocol.giopmsgheaders.Message is internal proprietary API and may be removed in a future release
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/runescape-api/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19:test (default-test) @ api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ api ---
+[INFO] Building jar: /home/bold/IdeaProjects/rLite/runescape-api/target/api-132.2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ api ---
+[INFO] Installing /home/bold/IdeaProjects/rLite/runescape-api/target/api-132.2-SNAPSHOT.jar to /home/bold/.m2/repository/net/runelite/rs/api/132.2-SNAPSHOT/api-132.2-SNAPSHOT.jar
+[INFO] Installing /home/bold/IdeaProjects/rLite/runescape-api/pom.xml to /home/bold/.m2/repository/net/runelite/rs/api/132.2-SNAPSHOT/api-132.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Runelite API 1.0.20-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/runelite-api/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to /home/bold/IdeaProjects/rLite/runelite-api/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/runelite-api/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19:test (default-test) @ api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ api ---
+[INFO] Building jar: /home/bold/IdeaProjects/rLite/runelite-api/target/api-1.0.20-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ api ---
+[INFO] Installing /home/bold/IdeaProjects/rLite/runelite-api/target/api-1.0.20-SNAPSHOT.jar to /home/bold/.m2/repository/net/runelite/api/1.0.20-SNAPSHOT/api-1.0.20-SNAPSHOT.jar
+[INFO] Installing /home/bold/IdeaProjects/rLite/runelite-api/pom.xml to /home/bold/.m2/repository/net/runelite/api/1.0.20-SNAPSHOT/api-1.0.20-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Cache 1.1.19-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ cache ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ cache ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 66 source files to /home/bold/IdeaProjects/rLite/cache/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ cache ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 18 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ cache ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ cache ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ cache ---
+[INFO] Building jar: /home/bold/IdeaProjects/rLite/cache/target/cache-1.1.19-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (make-assembly) @ cache ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] net/ already added, skipping
+[INFO] net/runelite/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] org/slf4j/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/maven/org.slf4j/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/google/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] org/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] Building jar: /home/bold/IdeaProjects/rLite/cache/target/cache-1.1.19-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] net/ already added, skipping
+[INFO] net/runelite/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] org/slf4j/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/maven/org.slf4j/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/google/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] org/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ cache ---
+[INFO] Installing /home/bold/IdeaProjects/rLite/cache/target/cache-1.1.19-SNAPSHOT.jar to /home/bold/.m2/repository/net/runelite/cache/1.1.19-SNAPSHOT/cache-1.1.19-SNAPSHOT.jar
+[INFO] Installing /home/bold/IdeaProjects/rLite/cache/pom.xml to /home/bold/.m2/repository/net/runelite/cache/1.1.19-SNAPSHOT/cache-1.1.19-SNAPSHOT.pom
+[INFO] Installing /home/bold/IdeaProjects/rLite/cache/target/cache-1.1.19-SNAPSHOT-jar-with-dependencies.jar to /home/bold/.m2/repository/net/runelite/cache/1.1.19-SNAPSHOT/cache-1.1.19-SNAPSHOT-jar-with-dependencies.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Deobfuscator 1.2.19-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ deob ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ deob ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 327 source files to /home/bold/IdeaProjects/rLite/deobfuscator/target/classes
+[WARNING] /home/bold/IdeaProjects/rLite/deobfuscator/src/main/java/net/runelite/asm/execution/MethodContext.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/bold/IdeaProjects/rLite/deobfuscator/src/main/java/net/runelite/asm/execution/MethodContext.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ deob ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 10 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ deob ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ deob ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ deob ---
+[INFO] Building jar: /home/bold/IdeaProjects/rLite/deobfuscator/target/deob-1.2.19-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (make-assembly) @ deob ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] net/ already added, skipping
+[INFO] net/runelite/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] org/slf4j/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/maven/org.slf4j/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/google/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] Building jar: /home/bold/IdeaProjects/rLite/deobfuscator/target/deob-1.2.19-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] net/ already added, skipping
+[INFO] net/runelite/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] org/slf4j/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/maven/org.slf4j/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/google/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ deob ---
+[INFO] Installing /home/bold/IdeaProjects/rLite/deobfuscator/target/deob-1.2.19-SNAPSHOT.jar to /home/bold/.m2/repository/net/runelite/deob/1.2.19-SNAPSHOT/deob-1.2.19-SNAPSHOT.jar
+[INFO] Installing /home/bold/IdeaProjects/rLite/deobfuscator/pom.xml to /home/bold/.m2/repository/net/runelite/deob/1.2.19-SNAPSHOT/deob-1.2.19-SNAPSHOT.pom
+[INFO] Installing /home/bold/IdeaProjects/rLite/deobfuscator/target/deob-1.2.19-SNAPSHOT-jar-with-dependencies.jar to /home/bold/.m2/repository/net/runelite/deob/1.2.19-SNAPSHOT/deob-1.2.19-SNAPSHOT-jar-with-dependencies.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Model Viewer 1.0.19-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-nativedependencies-plugin:0.0.6:copy (unpacknatives) @ modelviewer ---
+[INFO] Saving natives in /home/bold/IdeaProjects/rLite/model-viewer/target/natives
+[INFO] G:org.lwjgl.lwjgl - A:lwjgl-platform - C:natives-windows
+[info] Copying natives from lwjgl-platform-2.9.3-natives-windows.jar
+[info] Copying native - META-INF/
+[info] Copying native - META-INF/MANIFEST.MF
+[info] Copying native - OpenAL32.dll
+[info] Copying native - OpenAL64.dll
+[info] Copying native - lwjgl.dll
+[info] Copying native - lwjgl64.dll
+[INFO] G:org.lwjgl.lwjgl - A:lwjgl-platform - C:natives-linux
+[info] Copying natives from lwjgl-platform-2.9.3-natives-linux.jar
+[info] Copying native - META-INF/
+[info] Copying native - META-INF/MANIFEST.MF
+[info] Copying native - liblwjgl.so
+[info] Copying native - liblwjgl64.so
+[info] Copying native - libopenal.so
+[info] Copying native - libopenal64.so
+[INFO] G:org.lwjgl.lwjgl - A:lwjgl-platform - C:natives-osx
+[info] Copying natives from lwjgl-platform-2.9.3-natives-osx.jar
+[info] Copying native - META-INF/
+[info] Copying native - META-INF/MANIFEST.MF
+[info] Copying native - liblwjgl.dylib
+[info] Copying native - openal.dylib
+[INFO] G:net.java.jinput - A:jinput-platform - C:natives-linux
+[info] Copying natives from jinput-platform-2.0.5-natives-linux.jar
+[info] Copying native - libjinput-linux.so
+[info] Copying native - libjinput-linux64.so
+[INFO] G:net.java.jinput - A:jinput-platform - C:natives-windows
+[info] Copying natives from jinput-platform-2.0.5-natives-windows.jar
+[info] Copying native - jinput-dx8.dll
+[info] Copying native - jinput-dx8_64.dll
+[info] Copying native - jinput-raw.dll
+[info] Copying native - jinput-raw_64.dll
+[info] Copying native - jinput-wintab.dll
+[INFO] G:net.java.jinput - A:jinput-platform - C:natives-osx
+[info] Copying natives from jinput-platform-2.0.5-natives-osx.jar
+[info] Copying native - libjinput-osx.jnilib
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ modelviewer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/model-viewer/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ modelviewer ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ modelviewer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/model-viewer/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ modelviewer ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19:test (default-test) @ modelviewer ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ modelviewer ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ modelviewer ---
+[INFO] Installing /home/bold/IdeaProjects/rLite/model-viewer/target/modelviewer-1.0.19-SNAPSHOT.jar to /home/bold/.m2/repository/net/runelite/modelviewer/1.0.19-SNAPSHOT/modelviewer-1.0.19-SNAPSHOT.jar
+[INFO] Installing /home/bold/IdeaProjects/rLite/model-viewer/pom.xml to /home/bold/.m2/repository/net/runelite/modelviewer/1.0.19-SNAPSHOT/modelviewer-1.0.19-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Model Viewer (RSMV) 1.0.19-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ modelviewer-rsmv ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/model-viewer-rsmv/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ modelviewer-rsmv ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ modelviewer-rsmv ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/model-viewer-rsmv/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ modelviewer-rsmv ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19:test (default-test) @ modelviewer-rsmv ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ modelviewer-rsmv ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ modelviewer-rsmv ---
+[INFO] Installing /home/bold/IdeaProjects/rLite/model-viewer-rsmv/target/modelviewer-rsmv-1.0.19-SNAPSHOT.jar to /home/bold/.m2/repository/net/runelite/modelviewer-rsmv/1.0.19-SNAPSHOT/modelviewer-rsmv-1.0.19-SNAPSHOT.jar
+[INFO] Installing /home/bold/IdeaProjects/rLite/model-viewer-rsmv/pom.xml to /home/bold/.m2/repository/net/runelite/modelviewer-rsmv/1.0.19-SNAPSHOT/modelviewer-rsmv-1.0.19-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building RuneScape Client 132.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ rs-client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ rs-client ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 232 source files to /home/bold/IdeaProjects/rLite/runescape-client/target/classes
+[WARNING] /home/bold/IdeaProjects/rLite/runescape-client/src/main/java/class11.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/bold/IdeaProjects/rLite/runescape-client/src/main/java/class11.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ rs-client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/runescape-client/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ rs-client ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19:test (default-test) @ rs-client ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ rs-client ---
+[INFO] Building jar: /home/bold/IdeaProjects/rLite/runescape-client/target/rs-client-132.2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ rs-client ---
+[INFO] Installing /home/bold/IdeaProjects/rLite/runescape-client/target/rs-client-132.2-SNAPSHOT.jar to /home/bold/.m2/repository/net/runelite/rs/rs-client/132.2-SNAPSHOT/rs-client-132.2-SNAPSHOT.jar
+[INFO] Installing /home/bold/IdeaProjects/rLite/runescape-client/pom.xml to /home/bold/.m2/repository/net/runelite/rs/rs-client/132.2-SNAPSHOT/rs-client-132.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Injector Plugin 132.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ injector-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/runescape-client-injector-plugin/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ injector-plugin ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-plugin-plugin:3.4:descriptor (default-descriptor) @ injector-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo metadata.
+[INFO] Mojo extractor with id: java-javadoc found 0 mojo descriptors.
+[INFO] Mojo extractor with id: java-annotations found 1 mojo descriptors.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ injector-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/runescape-client-injector-plugin/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ injector-plugin ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19:test (default-test) @ injector-plugin ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ injector-plugin ---
+[INFO] Building jar: /home/bold/IdeaProjects/rLite/runescape-client-injector-plugin/target/injector-plugin-132.2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-plugin-plugin:3.4:addPluginArtifactMetadata (default-addPluginArtifactMetadata) @ injector-plugin ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ injector-plugin ---
+[INFO] Installing /home/bold/IdeaProjects/rLite/runescape-client-injector-plugin/target/injector-plugin-132.2-SNAPSHOT.jar to /home/bold/.m2/repository/net/runelite/rs/injector-plugin/132.2-SNAPSHOT/injector-plugin-132.2-SNAPSHOT.jar
+[INFO] Installing /home/bold/IdeaProjects/rLite/runescape-client-injector-plugin/pom.xml to /home/bold/.m2/repository/net/runelite/rs/injector-plugin/132.2-SNAPSHOT/injector-plugin-132.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Injector 132.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.3:properties (default) @ client ---
+[INFO] 
+[INFO] --- injector-plugin:132.2-SNAPSHOT:runelite-injector (default) @ client ---
+[INFO] Vanilla client version 132
+[INFO] Class TextureProvider implements nonexistent interface net.runelite.rs.api.TextureProvider, skipping interface injection
+[WARNING] Non static exported method load on non exported interface
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name flags, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name isMembers, not injecting getter
+Processed 507 frames
+Processed 35 frames
+[INFO] Found array injection location for hook npcChange at instruction net.runelite.asm.attributes.code.instructions.AAStore@2e38645f in static s.bc(ZI)V
+[INFO] Found array injection location for hook npcChange at instruction net.runelite.asm.attributes.code.instructions.AAStore@6cae1a0e in static s.bc(ZI)V
+Processed 159 frames
+Processed 14 frames
+Processed 123 frames
+Processed 106 frames
+Processed 2647 frames
+[INFO] Found array injection location for hook npcChange at instruction net.runelite.asm.attributes.code.instructions.AAStore@6602a5f3 in static t.y(I)V
+Processed 49 frames
+Processed 116 frames
+Processed 8 frames
+Processed 62 frames
+Processed 8 frames
+Processed 4 frames
+Processed 2696 frames
+[INFO] Found array injection location for hook npcChange at instruction net.runelite.asm.attributes.code.instructions.AAStore@39bc736 in static client.jv(Z)V
+[INFO] Found array injection location for hook npcChange at instruction net.runelite.asm.attributes.code.instructions.AAStore@55726f6c in static client.jv(Z)V
+Processed 86 frames
+Processed 8 frames
+Processed 19 frames
+Processed 32 frames
+Processed 32 frames
+Processed 107 frames
+[INFO] Found array injection location for hook npcChange at instruction net.runelite.asm.attributes.code.instructions.AAStore@852c06c in static client.jo(Z)V
+[INFO] Found array injection location for hook npcChange at instruction net.runelite.asm.attributes.code.instructions.AAStore@5cfed9c3 in static client.jo(Z)V
+Processed 92 frames
+Processed 286 frames
+Processed 285 frames
+Processed 103 frames
+[INFO] Found array injection location for hook npcChange at instruction net.runelite.asm.attributes.code.instructions.AAStore@75c5da9d in static client.ji(Z)V
+[INFO] Found array injection location for hook npcChange at instruction net.runelite.asm.attributes.code.instructions.AAStore@39df338f in static client.ji(Z)V
+Processed 92 frames
+Processed 129 frames
+Processed 2696 frames
+Processed 106 frames
+Processed 123 frames
+Processed 8 frames
+Processed 73 frames
+Processed 4 frames
+Processed 8 frames
+Processed 62 frames
+Processed 232 frames
+Processed 7 frames
+Processed 188 frames
+Processed 47 frames
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name clanChatOwner, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name playerOptionsPriority, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name isDynamicRegion, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name mapScaleDelta, not injecting getter
+Processed 2679 frames
+[INFO] Found array injection location for hook experienceChanged at instruction net.runelite.asm.attributes.code.instructions.IAStore@70bf5796 in static l.b(I)V
+Processed 2647 frames
+Processed 241 frames
+[INFO] Found array injection location for hook experienceChanged at instruction net.runelite.asm.attributes.code.instructions.IAStore@1e1fceba in static client.fm()V
+Processed 2696 frames
+[INFO] Found array injection location for hook experienceChanged at instruction net.runelite.asm.attributes.code.instructions.IAStore@f639d28 in static client.fl()V
+Processed 2696 frames
+Processed 241 frames
+Processed 241 frames
+Processed 241 frames
+Processed 241 frames
+Processed 1966 frames
+Processed 156 frames
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name totalNPCArr, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name playerOptions, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name localInteractingIndex, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name projectiles, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name widgetRoot, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name interfaceItemTriggers, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name widgetFlags, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name widgetBoundsWidth, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name widgetBoundsHeight, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name menuActionParams0, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name flagX, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name flagY, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name friendCount, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name menuActionParams1, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name ignoreCount, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name messageReceived, not injecting invoker
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.MessageNode with imported name tick, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.MessageNode with imported name name, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name host, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.MessageNode with imported name id, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.PlayerComposition with imported name hash, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Friend with imported name rank, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name overlayRotations, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name npcModelCache, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.NPCComposition with imported name configs, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.Node with imported name unlink, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Node with imported name linked, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name calculateHeight, not injecting invoker
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name modelSizeHeight, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name impostorIds, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name objectModels, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name objectTypes, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name isSolid, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name recolorToReplace, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name configId, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name textureToReplace, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name sizeY, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name recolorToFind, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name animationId, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name ambient, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name contrast, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name sizeX, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name mapIconId, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name mapSceneId, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name modelSizeX, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name nonFlatShading, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name modelSizeY, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name offsetX, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name offsetHeight, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name offsetY, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name varpId, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name ambientSoundId, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ObjectComposition with imported name textureToFind, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.ObjectComposition with imported name loadData, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.ObjectComposition with imported name getImpostor, not injecting invoker
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name worldServersDownload, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name menuY, not injecting getter
+[INFO] Class Frames implements nonexistent interface net.runelite.rs.api.Frames, skipping interface injection
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name chatboxSegments, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name keyboard, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name keyboardIdleTicks, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Player with imported name skullIcon, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Player with imported name overheadIcon, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Player with imported name actions, not injecting getter
+[INFO] Class VertexNormal implements nonexistent interface net.runelite.rs.api.VertexNormal, skipping interface injection
+[WARNING] Non static exported field x on non exported interface
+[WARNING] Non static exported field y on non exported interface
+[WARNING] Non static exported field z on non exported interface
+[WARNING] Non static exported field magnitude on non exported interface
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name bufferProvider, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name loginWindowX, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name loginMessage1, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name loginIndex, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name loginMessage3, not injecting getter
+[INFO] Injecting setter for username on interface net.runelite.rs.api.Client
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name loginIndex2, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name worldSelectShown, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name menuX, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name getKitDefinition, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name groundItemSpawned, not injecting invoker
+[INFO] Class Varbit implements nonexistent interface net.runelite.rs.api.Varbit, skipping interface injection
+[WARNING] Non static exported field leastSignificantBit on non exported interface
+[WARNING] Non static exported field configId on non exported interface
+[WARNING] Non static exported field mostSignificantBit on non exported interface
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.SpritePixels with imported name height, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.SpritePixels with imported name offsetX, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.SpritePixels with imported name offsetY, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.SpritePixels with imported name maxWidth, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.SpritePixels with imported name image, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.SpritePixels with imported name width, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.SpritePixels with imported name maxHeight, not injecting getter
+[INFO] Class MainBufferProvider implements nonexistent interface net.runelite.rs.api.MainBufferProvider, skipping interface injection
+[WARNING] Non static exported method init on non exported interface
+[WARNING] Non static exported method draw on non exported interface
+[WARNING] Non static exported method drawSub on non exported interface
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name menuAction, not injecting invoker
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.XHashTable with imported name size, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.XHashTable with imported name buckets, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name gameDraw, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name getItemDefinition, not injecting invoker
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.CollisionData with imported name y, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.CollisionData with imported name x, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.CollisionData with imported name width, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.CollisionData with imported name height, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name mapRegions, not injecting getter
+[INFO] Class Node2LinkedList implements nonexistent interface net.runelite.rs.api.Node2LinkedList, skipping interface injection
+[WARNING] Non static exported field sentinel on non exported interface
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name loadWorlds, not injecting invoker
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name overlayPaths, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Sequence with imported name frameIDs, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Sequence with imported name frameStep, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Sequence with imported name forcedPriority, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Sequence with imported name rightHandItem, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Sequence with imported name leftHandItem, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Sequence with imported name frameLenghts, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Sequence with imported name priority, not injecting getter
+[INFO] Class Spotanim implements nonexistent interface net.runelite.rs.api.Spotanim, skipping interface injection
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name xteaChanged, not injecting invoker
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Tile with imported name wallObject, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Tile with imported name decorativeObject, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Tile with imported name groundObject, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name getNpcDefinition, not injecting invoker
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name authCode, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Actor with imported name idlePoseAnimation, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Actor with imported name actionFrame, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Actor with imported name poseAnimation, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Actor with imported name poseFrame, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Actor with imported name angle, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Actor with imported name graphic, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Actor with imported name pathY, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Actor with imported name actionAnimationDisable, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Actor with imported name pathX, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Actor with imported name npcField641, not injecting getter
+[INFO] Class ModIcon implements nonexistent interface net.runelite.rs.api.ModIcon, skipping interface injection
+[WARNING] Non static exported field offsetX on non exported interface
+[WARNING] Non static exported field palette on non exported interface
+[WARNING] Non static exported field pixels on non exported interface
+[WARNING] Non static exported field height on non exported interface
+[WARNING] Non static exported field originalHeight on non exported interface
+[WARNING] Non static exported field offsetY on non exported interface
+[WARNING] Non static exported field width on non exported interface
+[WARNING] Non static exported field originalWidth on non exported interface
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name getFrames, not injecting invoker
+[INFO] Class Font implements nonexistent interface net.runelite.rs.api.Font, skipping interface injection
+[INFO] Class FontTypeFace implements nonexistent interface net.runelite.rs.api.FontTypeFace, skipping interface injection
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name modIcons, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name setGameState, not injecting invoker
+[INFO] Class NodeCache implements nonexistent interface net.runelite.rs.api.NodeCache, skipping interface injection
+[WARNING] Non static exported field table on non exported interface
+[WARNING] Non static exported field list on non exported interface
+[WARNING] Non static exported method get on non exported interface
+[WARNING] Non static exported method reset on non exported interface
+[WARNING] Non static exported method remove on non exported interface
+[WARNING] Non static exported method put on non exported interface
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name menuHeight, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name tooltip, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name scrollWidth, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name originalY, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name originalWidth, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name hasScript, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name scrollHeight, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name originalX, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name sprite2, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name flippedVertically, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name fontId, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name flippedHorizontally, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name item, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Widget with imported name stackSize, not injecting getter
+[INFO] Class FrameMap implements nonexistent interface net.runelite.rs.api.FrameMap, skipping interface injection
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name underlayIds, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name overlayIds, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name clanChatCount, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name xteaKeys, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name getObjectDefinition, not injecting invoker
+[INFO] Class Overlay implements nonexistent interface net.runelite.rs.api.Overlay, skipping interface injection
+[WARNING] Non static exported field lightness on non exported interface
+[WARNING] Non static exported field color on non exported interface
+[WARNING] Non static exported field texture on non exported interface
+[WARNING] Non static exported field isHidden on non exported interface
+[WARNING] Non static exported field hue on non exported interface
+[WARNING] Non static exported field saturation on non exported interface
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name rasterAlpha, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name rasterGouraudLowRes, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name rasterClipEnable, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name rasterClipX, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name rasterClipY, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name colorPalette, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name setRasterClipping, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name rasterGouraud, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name rasterFlat, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name rasterTexture, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name rasterTextureAffine, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name setRasterClippingEnabled, not injecting invoker
+[INFO] Class FloorUnderlayDefinition implements nonexistent interface net.runelite.rs.api.FloorUnderlayDefinition, skipping interface injection
+[INFO] Class ModelData implements nonexistent interface net.runelite.rs.api.ModelData, skipping interface injection
+[WARNING] Non static exported field vertexX on non exported interface
+[WARNING] Non static exported field vertexY on non exported interface
+[WARNING] Non static exported field vertexZ on non exported interface
+[WARNING] Non static exported field triangleFaceCount on non exported interface
+[WARNING] Non static exported field trianglePointsZ on non exported interface
+[WARNING] Non static exported field textureRenderTypes on non exported interface
+[WARNING] Non static exported field faceColor on non exported interface
+[WARNING] Non static exported field faceAlphas on non exported interface
+[WARNING] Non static exported field textureCoords on non exported interface
+[WARNING] Non static exported field faceRenderPriorities on non exported interface
+[WARNING] Non static exported field priority on non exported interface
+[WARNING] Non static exported field texTriangleX on non exported interface
+[WARNING] Non static exported field texTriangleZ on non exported interface
+[WARNING] Non static exported field vertexCount on non exported interface
+[WARNING] Non static exported field trianglePointsY on non exported interface
+[WARNING] Non static exported field faceTextures on non exported interface
+[WARNING] Non static exported field vertexSkins on non exported interface
+[WARNING] Non static exported field triangleSkinValues on non exported interface
+[WARNING] Non static exported field faceNormals on non exported interface
+[WARNING] Non static exported field normals on non exported interface
+[WARNING] Non static exported field texTriangleY on non exported interface
+[WARNING] Non static exported field trianglePointsX on non exported interface
+[WARNING] Non static exported field texturePrimaryColor on non exported interface
+[WARNING] Non static exported field faceRenderType on non exported interface
+[WARNING] Non static exported method computeNormals on non exported interface
+[WARNING] Non static exported method computeAnimationTables on non exported interface
+[INFO] Class DecorativeObject implements nonexistent interface net.runelite.rs.api.DecorativeObject, skipping interface injection
+[WARNING] Non static exported field offsetY on non exported interface
+[WARNING] Non static exported field x on non exported interface
+[WARNING] Non static exported field y on non exported interface
+[WARNING] Non static exported field renderFlag on non exported interface
+[WARNING] Non static exported field offsetX on non exported interface
+[WARNING] Non static exported field renderInfoBitPacked on non exported interface
+[WARNING] Non static exported field renderable1 on non exported interface
+[WARNING] Non static exported field hash on non exported interface
+[WARNING] Non static exported field renderable2 on non exported interface
+[WARNING] Non static exported field floor on non exported interface
+[WARNING] Non static exported field rotation on non exported interface
+[INFO] Class GroundObject implements nonexistent interface net.runelite.rs.api.GroundObject, skipping interface injection
+[WARNING] Non static exported field hash on non exported interface
+[WARNING] Non static exported field x on non exported interface
+[WARNING] Non static exported field renderable on non exported interface
+[WARNING] Non static exported field renderInfoBitPacked on non exported interface
+[WARNING] Non static exported field floor on non exported interface
+[WARNING] Non static exported field y on non exported interface
+[INFO] Unable to find api method on interface net.runelite.rs.api.Buffer with imported name readUnsignedByte, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Buffer with imported name readUnsignedShort, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Buffer with imported name readShortSmart, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Buffer with imported name readByte, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Buffer with imported name readShort, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Buffer with imported name read24BitInt, not injecting invoker
+[INFO] Class BufferProvider implements nonexistent interface net.runelite.rs.api.BufferProvider, skipping interface injection
+[WARNING] Non static exported field image on non exported interface
+[WARNING] Non static exported field width on non exported interface
+[WARNING] Non static exported field height on non exported interface
+[WARNING] Non static exported field pixels on non exported interface
+[INFO] Class Rasterizer2D implements nonexistent interface net.runelite.rs.api.Rasterizer2D, skipping interface injection
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name graphicsPixelsHeight, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name graphicsPixelsWidth, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name graphicsPixels, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name setRasterBuffer, not injecting invoker
+[INFO] Class WallObject implements nonexistent interface net.runelite.rs.api.WallObject, skipping interface injection
+[WARNING] Non static exported field hash on non exported interface
+[WARNING] Non static exported field y on non exported interface
+[WARNING] Non static exported field renderable2 on non exported interface
+[WARNING] Non static exported field renderable1 on non exported interface
+[WARNING] Non static exported field floor on non exported interface
+[WARNING] Non static exported field x on non exported interface
+[INFO] Class FaceNormal implements nonexistent interface net.runelite.rs.api.FaceNormal, skipping interface injection
+[WARNING] Non static exported field y on non exported interface
+[WARNING] Non static exported field x on non exported interface
+[WARNING] Non static exported field z on non exported interface
+[INFO] Class SecondaryBufferProvider implements nonexistent interface net.runelite.rs.api.SecondaryBufferProvider, skipping interface injection
+[WARNING] Non static exported method draw on non exported interface
+[WARNING] Non static exported method drawSub on non exported interface
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Model with imported name verticesX, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Model with imported name verticesZ, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Model with imported name indices1, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Model with imported name indices3, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Model with imported name verticesY, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Model with imported name indices2, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name createSprite, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.Renderable with imported name getModel, not injecting invoker
+[INFO] Class KitDefinition implements nonexistent interface net.runelite.rs.api.KitDefinition, skipping interface injection
+[WARNING] Non static exported method ready on non exported interface
+[WARNING] Non static exported method getModelData on non exported interface
+[INFO] Class class182 implements nonexistent interface net.runelite.rs.api.Varps, skipping interface injection
+[WARNING] Non static exported method getConfigData on non exported interface
+[WARNING] Non static exported method getConfigData on non exported interface
+[INFO] Class Frame implements nonexistent interface net.runelite.rs.api.Frame, skipping interface injection
+[WARNING] Non static exported field translator_x on non exported interface
+[WARNING] Non static exported field translator_y on non exported interface
+[WARNING] Non static exported field translator_z on non exported interface
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Projectile with imported name floor, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Projectile with imported name interacting, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Projectile with imported name y1, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Projectile with imported name z1, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Projectile with imported name startTime, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Projectile with imported name start, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Projectile with imported name x, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Projectile with imported name x1, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Projectile with imported name az, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Projectile with imported name id, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Projectile with imported name z, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name spriteCache, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.Client with imported name getAnimation, not injecting invoker
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name menuWidth, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name femaleModel, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name yan2d, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name isMembersWorld, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name itemModelCache, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name team, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name id, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name inventoryModel, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name offsetX2d, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name zan2d, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name textureToReplace, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name itemSpriteCache, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name zoom2d, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name xan2d, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name offsetY2d, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name price, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name colourToReplaceWith, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name isStackable, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name femaleHeadModel, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name groundActions, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name inventoryActions, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name femaleOffset, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name maleModel1, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name note, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name maleOffset, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name femaleModel1, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name countObj, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name maleModel2, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name femaleModel2, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name maleHeadModel, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name maleHeadModel2, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name femaleHeadModel2, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name countCo, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name resizeZ, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name notedTemplate, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name resizeX, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name resizeY, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name ambient, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name contrast, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name colourToReplace, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.ItemComposition with imported name textToReplaceWith, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.ItemComposition with imported name populateFromBuffer, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.ItemComposition with imported name loadBuffer, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.ItemComposition with imported name readyWorn, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.ItemComposition with imported name getWornModelData, not injecting invoker
+[INFO] Unable to find api method on interface net.runelite.rs.api.ItemComposition with imported name getModel, not injecting invoker
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name renderArea, not injecting getter
+[INFO] Unable to find api method on interface net.runelite.rs.api.Region with imported name groundObjectSpawned, not injecting invoker
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name mouseIdleTicks, not injecting getter
+[INFO] Unable to find import method on api class interface net.runelite.rs.api.Client with imported name mouse, not injecting getter
+[WARNING] Class t implements interface Player but not does implement method public abstract int net.runelite.rs.api.Actor.getInteractingObjects()
+[WARNING] Class client implements interface Client but not does implement method public abstract net.runelite.rs.api.Widget net.runelite.rs.api.Client.getActiveInterface()
+[WARNING] Class client implements interface Client but not does implement method public abstract java.lang.String[] net.runelite.rs.api.Client.getMenuActions()
+[WARNING] Class client implements interface Client but not does implement method public abstract int net.runelite.rs.api.Client.getRootInterface()
+[WARNING] Class client implements interface Client but not does implement method public abstract net.runelite.rs.api.ObjectComposition net.runelite.rs.api.Client.getObjectDefinition(int)
+[WARNING] Class am implements interface Actor but not does implement method public abstract int net.runelite.rs.api.Actor.getInteractingObjects()
+[WARNING] Class ay implements interface NPC but not does implement method public abstract int net.runelite.rs.api.Actor.getInteractingObjects()
+[WARNING] Class fp implements interface PlayerComposition but not does implement method public abstract int[] net.runelite.rs.api.PlayerComposition.getEquipment()
+[WARNING] Class fw implements interface Widget but not does implement method public abstract int net.runelite.rs.api.Widget.getY()
+[WARNING] Class fw implements interface Widget but not does implement method public abstract int net.runelite.rs.api.Widget.getX()
+[WARNING] Class fw implements interface Widget but not does implement method public abstract int net.runelite.rs.api.Widget.getItemQuantity()
+[INFO] 264 injected methods, 11 missing
+[INFO] Injector wrote 235 classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/runescape-client-injector/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ client ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/runescape-client-injector/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ client ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19:test (default-test) @ client ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ client ---
+[INFO] Building jar: /home/bold/IdeaProjects/rLite/runescape-client-injector/target/client-132.2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ client ---
+[INFO] Installing /home/bold/IdeaProjects/rLite/runescape-client-injector/target/client-132.2-SNAPSHOT.jar to /home/bold/.m2/repository/net/runelite/rs/client/132.2-SNAPSHOT/client-132.2-SNAPSHOT.jar
+[INFO] Installing /home/bold/IdeaProjects/rLite/runescape-client-injector/pom.xml to /home/bold/.m2/repository/net/runelite/rs/client/132.2-SNAPSHOT/client-132.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Runelite Client 1.0.20-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/bold/IdeaProjects/rLite/runelite-client/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ client ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 32 source files to /home/bold/IdeaProjects/rLite/runelite-client/target/classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/plugins/debug/DebugOverlay.java:[4,53] com.sun.corba.se.impl.protocol.giopmsgheaders.Message is internal proprietary API and may be removed in a future release
+[WARNING] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/plugins/debug/DebugOverlay.java:[12,30] sun.management.counter.Units is internal proprietary API and may be removed in a future release
+[WARNING] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/plugins/bosstimers/BossTimersOverlay.java:[4,53] com.sun.corba.se.impl.protocol.giopmsgheaders.Message is internal proprietary API and may be removed in a future release
+[WARNING] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/plugins/bosstimers/BossTimersOverlay.java:[13,30] sun.management.counter.Units is internal proprietary API and may be removed in a future release
+[INFO] 4 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/plugins/debug/DebugOverlay.java:[35,33] cannot find symbol
+  symbol:   method setUsername(java.lang.String)
+  location: class net.runelite.api.Client
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/plugins/experiencedrops/ExperienceDrops.java:[17,51] cannot find symbol
+  symbol:   variable CUSTOM
+  location: class net.runelite.client.ui.overlay.OverlayPosition
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/ui/overlay/OverlayRenderer.java:[44,17] cannot find symbol
+  symbol:   variable td
+  location: class net.runelite.client.ui.overlay.OverlayRenderer
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/ui/overlay/OverlayRenderer.java:[46,17] cannot find symbol
+  symbol:   variable td
+  location: class net.runelite.client.ui.overlay.OverlayRenderer
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/ui/overlay/OverlayRenderer.java:[47,57] cannot find symbol
+  symbol:   variable CUSTOM
+  location: class net.runelite.client.ui.overlay.OverlayPosition
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/ui/overlay/OverlayRenderer.java:[48,17] cannot find symbol
+  symbol:   variable td
+  location: class net.runelite.client.ui.overlay.OverlayRenderer
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/ui/overlay/TopDownRendererLeft.java:[68,22] an enum switch case label must be the unqualified name of an enumeration constant
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/ui/overlay/TopDownRendererLeft.java:[69,26] cannot find symbol
+  symbol:   method isResized()
+  location: variable c of type net.runelite.api.Client
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/plugins/debug/Debug.java:[13,69] cannot find symbol
+  symbol:   variable CUSTOM
+  location: class net.runelite.client.ui.overlay.OverlayPosition
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/plugins/experiencedrops/ExpDropsOverlay.java:[71,28] cannot find symbol
+  symbol:   method isResized()
+  location: variable client of type net.runelite.api.Client
+[INFO] 10 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Runelite ........................................... SUCCESS [  0.079 s]
+[INFO] RuneScape API ...................................... SUCCESS [  0.781 s]
+[INFO] Runelite API ....................................... SUCCESS [  0.602 s]
+[INFO] Cache .............................................. SUCCESS [  3.322 s]
+[INFO] Deobfuscator ....................................... SUCCESS [  1.889 s]
+[INFO] Model Viewer ....................................... SUCCESS [  0.117 s]
+[INFO] Model Viewer (RSMV) ................................ SUCCESS [  0.009 s]
+[INFO] RuneScape Client ................................... SUCCESS [  1.624 s]
+[INFO] Injector Plugin .................................... SUCCESS [  0.509 s]
+[INFO] Injector ........................................... SUCCESS [ 37.025 s]
+[INFO] Runelite Client .................................... FAILURE [  0.064 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 46.191 s
+[INFO] Finished at: 2017-01-31T19:25:26-06:00
+[INFO] Final Memory: 34M/446M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project client: Compilation failure: Compilation failure:
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/plugins/debug/DebugOverlay.java:[35,33] cannot find symbol
+[ERROR] symbol:   method setUsername(java.lang.String)
+[ERROR] location: class net.runelite.api.Client
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/plugins/experiencedrops/ExperienceDrops.java:[17,51] cannot find symbol
+[ERROR] symbol:   variable CUSTOM
+[ERROR] location: class net.runelite.client.ui.overlay.OverlayPosition
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/ui/overlay/OverlayRenderer.java:[44,17] cannot find symbol
+[ERROR] symbol:   variable td
+[ERROR] location: class net.runelite.client.ui.overlay.OverlayRenderer
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/ui/overlay/OverlayRenderer.java:[46,17] cannot find symbol
+[ERROR] symbol:   variable td
+[ERROR] location: class net.runelite.client.ui.overlay.OverlayRenderer
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/ui/overlay/OverlayRenderer.java:[47,57] cannot find symbol
+[ERROR] symbol:   variable CUSTOM
+[ERROR] location: class net.runelite.client.ui.overlay.OverlayPosition
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/ui/overlay/OverlayRenderer.java:[48,17] cannot find symbol
+[ERROR] symbol:   variable td
+[ERROR] location: class net.runelite.client.ui.overlay.OverlayRenderer
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/ui/overlay/TopDownRendererLeft.java:[68,22] an enum switch case label must be the unqualified name of an enumeration constant
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/ui/overlay/TopDownRendererLeft.java:[69,26] cannot find symbol
+[ERROR] symbol:   method isResized()
+[ERROR] location: variable c of type net.runelite.api.Client
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/plugins/debug/Debug.java:[13,69] cannot find symbol
+[ERROR] symbol:   variable CUSTOM
+[ERROR] location: class net.runelite.client.ui.overlay.OverlayPosition
+[ERROR] /home/bold/IdeaProjects/rLite/runelite-client/src/main/java/net/runelite/client/plugins/experiencedrops/ExpDropsOverlay.java:[71,28] cannot find symbol
+[ERROR] symbol:   method isResized()
+[ERROR] location: variable client of type net.runelite.api.Client
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :client

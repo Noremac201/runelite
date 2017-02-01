@@ -29,214 +29,209 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.Import;
 
 import java.awt.*;
+import java.util.Map;
 
 public interface Client extends GameEngine
 {
-    @Import("cameraX")
-    int getCameraX();
+	@Import("cameraX")
+	int getCameraX();
 
-    @Import("cameraY")
-    int getCameraY();
+	@Import("cameraY")
+	int getCameraY();
 
-    @Import("cameraZ")
-    int getCameraZ();
+	@Import("cameraZ")
+	int getCameraZ();
 
-    @Import("plane")
-    int getPlane();
+	@Import("plane")
+	int getPlane();
 
-    @Import("cameraPitch")
-    int getCameraPitch();
+	@Import("cameraPitch")
+	int getCameraPitch();
 
-    @Import("cameraYaw")
-    int getCameraYaw();
+	@Import("cameraYaw")
+	int getCameraYaw();
 
-    @Import("world")
-    int getWorld();
+	@Import("world")
+	int getWorld();
 
-    @Import("FPS")
-    int getFPS();
+	@Import("FPS")
+	int getFPS();
 
-    @Import("mapScale")
-    int getMapScale();
+	@Import("mapScale")
+	int getMapScale();
 
-    @Import("canvas")
-    Canvas getCanvas();
+	@Import("canvas")
+	Canvas getCanvas();
 
-    @Import("mapAngle")
-    int getMapAngle();
+	@Import("mapAngle")
+	int getMapAngle();
 
-    @Import("tileHeights")
-    int[][][] getTileHeights();
+	@Import("tileHeights")
+	int[][][] getTileHeights();
 
-    @Import("tileSettings")
-    byte[][][] getTileSettings();
+	@Import("tileSettings")
+	byte[][][] getTileSettings();
 
-    @Import("settings")
-    int[] getSettings();
+	@Import("settings")
+	int[] getSettings();
 
-    @Import("widgetSettings")
-    int[] getWidgetSettings();
+	@Import("widgetSettings")
+	int[] getWidgetSettings();
 
-    @Import("energy")
-    int getEnergy();
+	@Import("energy")
+	int getEnergy();
 
-    @Import("weight")
-    int getWeight();
+	@Import("weight")
+	int getWeight();
 
-    @Import("baseX")
-    int getBaseX();
+	@Import("baseX")
+	int getBaseX();
 
-    @Import("baseY")
-    int getBaseY();
+	@Import("baseY")
+	int getBaseY();
 
-    @Import("boostedSkillLevels")
-    int[] getBoostedSkillLevels();
+	@Import("boostedSkillLevels")
+	int[] getBoostedSkillLevels();
 
-    @Import("realSkillLevels")
-    int[] getRealSkillLevels();
+	@Import("realSkillLevels")
+	int[] getRealSkillLevels();
 
-    @Import("skillExperiences")
-    int[] getSkillExperiences();
+	@Import("skillExperiences")
+	int[] getSkillExperiences();
 
-    @Import("gameState")
-    int getGameState();
+	@Import("gameState")
+	int getGameState();
 
-    @Import("widgets")
-    Widget[][] getWidgets();
+	@Import("widgets")
+	Widget[][] getWidgets();
 
-    @Import("region")
-    Region getRegion();
+	@Import("region")
+	Region getRegion();
 
-    @Import("localPlayer")
-    Player getLocalPlayer();
+	@Import("localPlayer")
+	Player getLocalPlayer();
 
-    @Import("cachedNPCs")
-    NPC[] getCachedNPCs();
+	@Import("cachedNPCs")
+	NPC[] getCachedNPCs();
 
-    @Import("collisionMaps")
-    CollisionData[] getCollisionMaps();
+	@Import("collisionMaps")
+	CollisionData[] getCollisionMaps();
 
-    @Import("cachedPlayers")
-    Player[] getCachedPlayers();
+	@Import("cachedPlayers")
+	Player[] getCachedPlayers();
 
-    @Import("groundItemDeque")
-    Deque[][][] getGroundItemDeque();
+	@Import("groundItemDeque")
+	Deque[][][] getGroundItemDeque();
 
-    @Import("username")
-    String getUsername();
+	@Import("username")
+	String getUsername();
 
-    @Import(value = "username", setter = true)
-    void setUsername(String username);
+	@Import(value = "username", setter = true)
+	void setUsername(String username);
 
-    @Import("menuActions")
-    String[] getMenuActions();
+	@Import("menuActions")
+	String[] getMenuActions();
 
-    @Import("menuTargets")
-    String[] getMenuTargets();
+	@Import("menuTargets")
+	String[] getMenuTargets();
 
-    @Import("menuOptions")
-    String[] getMenuOptions();
+	@Import("menuOptions")
+	String[] getMenuOptions();
 
-    @Import("menuOptionCount")
-    int getMenuOptionCount();
+	@Import("menuOptionCount")
+	int getMenuOptionCount();
 
-    @Import("menuTypes")
-    int[] getMenuTypes();
+	@Import("menuTypes")
+	int[] getMenuTypes();
 
-    @Import("menuIdentifiers")
-    int[] getMenuIdentifiers();
+	@Import("menuIdentifiers")
+	int[] getMenuIdentifiers();
 
-    @Import("friends")
-    Friend[] getFriends();
+	@Import("friends")
+	Friend[] getFriends();
 
-    @Import("ignores")
-    Ignore[] getIgnores();
+	@Import("ignores")
+	Ignore[] getIgnores();
 
-    @Import("worldList")
-    World[] getWorldList();
+	@Import("worldList")
+	World[] getWorldList();
 
-    @Import("rootInterface")
-    int getRootInterface();
+	@Import("rootInterface")
+	int getRootInterface();
 
-    @Import("sendGameMessage")
-    void sendGameMessage(int var1, String var2, String var3);
+	@Import("sendGameMessage")
+	void sendGameMessage(int var1, String var2, String var3);
 
-    @Import("addChatMessage")
-    void addChatMessage(int typeOfMessage, String sender, String contents, String var3);
+	@Import("addChatMessage")
+	void addChatMessage(int typeOfMessage, String sender, String contents, String var3);
 
-    //void hopToWorld(String var1, int var2, int var3);
+	//void hopToWorld(String var1, int var2, int var3);
 
-    @Import("objectDefinition")
-    ObjectComposition getObjectDefinition(int var1);
+	@Import("objectDefinition")
+	ObjectComposition getObjectDefinition(int var1);
 
-    //void setScale(int var1);
+	//void setScale(int var1);
 
-    @Import("scale")
-    int getScale();
+	@Import("scale")
+	int getScale();
 
-    @Import("camera2")
-    int getCamera2();
+	@Import("camera2")
+	int getCamera2();
 
-    @Import("camera3")
-    int getCamera3();
+	@Import("camera3")
+	int getCamera3();
 
-    @Import("validInterfaces")
-    boolean[] getValidInterfaces();
+	@Import("validInterfaces")
+	boolean[] getValidInterfaces();
 
-    @Import("isResized")
-    boolean isResized();
+	@Import("isResized")
+	boolean isResized();
 
-    @Import("widgetPositionX")
-    int[] getWidgetPositionsX();
+	@Import("widgetPositionX")
+	int[] getWidgetPositionsX();
 
-    @Import("widgetPositionY")
-    int[] getWidgetPositionsY();
+	@Import("widgetPositionY")
+	int[] getWidgetPositionsY();
 
-    @Import("itemContainers")
-    XHashTable getItemContainers();
+	@Import("itemContainers")
+	XHashTable getItemContainers();
 
-    @Import("componentTable")
-    XHashTable getComponentTable();
+	@Import("componentTable")
+	XHashTable getComponentTable();
 
-    @Import("grandExchangeOffers")
-    XGrandExchangeOffer[] getGrandExchangeOffers();
+	@Import("grandExchangeOffers")
+	XGrandExchangeOffer[] getGrandExchangeOffers();
 
-    @Import("activeInterface")
-    Widget getActiveInterface();
+	@Import("activeInterface")
+	Widget getActiveInterface();
 
-    @Import("clanMembers")
-    XClanMember[] getClanMembers();
+	@Import("clanMembers")
+	XClanMember[] getClanMembers();
 
-    @Import("isMenuOpen")
-    boolean isMenuOpen();
+	@Import("isMenuOpen")
+	boolean isMenuOpen();
 
-    @Import("packetOpcode")
-    int getPacketOpcode();
+	@Import("packetOpcode")
+	int getPacketOpcode();
 
-    @Import("gameCycle")
-    int getGameCycle();
-
-    @Import("packetHandler")
-    void packetHandler();
-
-    @Import("loginMessage2")
-    String getLoginMessage2();
-
-    @Import("addMenuEntry")
-    void addMenuEntry(String var0, String var1, int var2, int var3, int var4, int var5);
-
-    @Import("chatMessages")
-    ChatMessages getChatMessages();
-
-    @Import("chatLineMap")
-    Map getChatLineMap();
-
-    @Import("totalNPC")
-    int getTotalNPC();
+	@Import("gameCycle")
+	int getGameCycle();
 
 	@Import("packetHandler")
 	void packetHandler();
 
-	@Import("canvas")
-	Canvas getCanvas();
+	@Import("loginMessage2")
+	String getLoginMessage2();
+
+	@Import("addMenuEntry")
+	void addMenuEntry(String var0, String var1, int var2, int var3, int var4, int var5);
+
+	@Import("chatMessages")
+	ChatMessages getChatMessages();
+
+	@Import("chatLineMap")
+	Map getChatLineMap();
+
+	@Import("totalNPC")
+	int getTotalNPC();
 }

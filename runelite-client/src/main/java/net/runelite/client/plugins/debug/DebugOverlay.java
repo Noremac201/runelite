@@ -31,8 +31,8 @@ public class DebugOverlay extends Overlay
     @Override
     public Dimension render(Graphics2D graphics)
     {
-        if (RuneLite.getClient().getGameState() == GameState.LOGIN_SCREEN)
-            RuneLite.getClient().setUsername("noremac201");
+//        if (RuneLite.getClient().getGameState() == GameState.LOGIN_SCREEN)
+//            RuneLite.getClient().setUsername("noremac201");
         if (RuneLite.getClient().getGameState() != GameState.LOGGED_IN)
             return null;
         return null;

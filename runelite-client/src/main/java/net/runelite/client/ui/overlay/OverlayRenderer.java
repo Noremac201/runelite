@@ -36,29 +36,27 @@ public class OverlayRenderer
 	{
 		TopDownRendererLeft tdl = new TopDownRendererLeft();
 		TopDownRendererRight tdr = new TopDownRendererRight();
+		TopDownRendererCustom tdc = new TopDownRendererCustom();
 
-        for (Plugin plugin : RuneLite.getRunelite().getPluginManager().getPlugins())
-        {
-            Overlay overlay = plugin.getOverlay();
-            if (overlay.getPosition() == OverlayPosition.TOP_LEFT)
-                td.add(overlay);
-            if (overlay.getPosition() == OverlayPosition.TOP_RIGHT)
-                td.add(overlay);
-            if (overlay.getPosition() == OverlayPosition.CUSTOM)
-                td.add(overlay);
-
+		for (Plugin plugin : RuneLite.getRunelite().getPluginManager().getPlugins())
+		{
+			Overlay overlay = plugin.getOverlay();
 			switch (overlay.getPosition())
 			{
+				case TOP_LEFT:
+					tdl.add(overlay);
+					break;
 				case TOP_RIGHT:
 					tdr.add(overlay);
 					break;
-				case TOP_LEFT:
-					tdl.add(overlay);
+				case CUSTOM:
+					tdc.add(overlay);
 					break;
 			}
 		}
 
 		tdl.render(clientBuffer);
 		tdr.render(clientBuffer);
+		tdc.render(clientBuffer);
 	}
 }

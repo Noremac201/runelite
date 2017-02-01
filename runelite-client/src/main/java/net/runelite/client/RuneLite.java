@@ -34,6 +34,8 @@ import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import net.runelite.api.Client;
 import net.runelite.client.plugins.PluginManager;
+import net.runelite.client.plugins.experiencedrops.ExpDropsOverlay;
+import net.runelite.client.plugins.experiencedrops.ExpListener;
 import net.runelite.client.ui.ClientUI;
 import net.runelite.client.ui.overlay.OverlayRenderer;
 import org.slf4j.Logger;
@@ -42,79 +44,82 @@ import org.slf4j.LoggerFactory;
 
 public class RuneLite
 {
-    private static final Logger logger = LoggerFactory.getLogger(RuneLite.class);
+	private static final Logger logger = LoggerFactory.getLogger(RuneLite.class);
 
-    public static final File RUNELITE_DIR = new File(System.getProperty("user.home"), ".runelite");
-    public static final File REPO_DIR = new File(RUNELITE_DIR, "repository");
+	public static final File RUNELITE_DIR = new File(System.getProperty("user.home"), ".runelite");
+	public static final File REPO_DIR = new File(RUNELITE_DIR, "repository");
 
-    private static OptionSet options;
-    private static Client client;
-    private static RuneLite runelite;
+	private static OptionSet options;
+	private static Client client;
+	private static RuneLite runelite;
 
-    private ClientUI gui;
-    private PluginManager pluginManager;
-    private OverlayRenderer renderer;
-    private EventBus eventBus = new EventBus(this::eventExceptionHandler);
+	private ClientUI gui;
+	private PluginManager pluginManager;
+	private OverlayRenderer renderer;
+	private EventBus eventBus = new EventBus(this::eventExceptionHandler);
 
-    public static void main(String[] args) throws Exception
-    {
-        OptionParser parser = new OptionParser();
-        parser.accepts("developer-mode");
-        options = parser.parse(args);
+	public static void main(String[] args) throws Exception
+	{
+		OptionParser parser = new OptionParser();
+		parser.accepts("developer-mode");
+		options = parser.parse(args);
 
-        runelite = new RuneLite();
-        runelite.start();
-    }
+		runelite = new RuneLite();
+		runelite.start();
 
-    public void start() throws Exception
-    {
-        gui = new ClientUI();
-        gui.setVisible(true);
+		RuneLite.getRunelite().getEventBus().register(new ExpListener());
 
-        pluginManager = new PluginManager(this);
-        pluginManager.loadAll();
+	}
 
-        renderer = new OverlayRenderer();
-        //gui.reCenter();
-    }
+	public void start() throws Exception
+	{
+		gui = new ClientUI();
+		gui.setVisible(true);
 
-    private void eventExceptionHandler(Throwable exception, SubscriberExceptionContext context)
-    {
-        logger.warn("uncaught exception in event subscriber", exception);
-    }
+		pluginManager = new PluginManager(this);
+		pluginManager.loadAll();
 
-    public static Client getClient()
-    {
-        return client;
-    }
+		renderer = new OverlayRenderer();
+		//gui.reCenter();
+	}
 
-    public static void setClient(Client client)
-    {
-        RuneLite.client = client;
-    }
+	private void eventExceptionHandler(Throwable exception, SubscriberExceptionContext context)
+	{
+		logger.warn("uncaught exception in event subscriber", exception);
+	}
 
-    public static RuneLite getRunelite()
-    {
-        return runelite;
-    }
+	public static Client getClient()
+	{
+		return client;
+	}
 
-    public PluginManager getPluginManager()
-    {
-        return pluginManager;
-    }
+	public static void setClient(Client client)
+	{
+		RuneLite.client = client;
+	}
 
-    public OverlayRenderer getRenderer()
-    {
-        return renderer;
-    }
+	public static RuneLite getRunelite()
+	{
+		return runelite;
+	}
 
-    public EventBus getEventBus()
-    {
-        return eventBus;
-    }
+	public PluginManager getPluginManager()
+	{
+		return pluginManager;
+	}
 
-    public static OptionSet getOptions()
-    {
-        return options;
-    }
+	public OverlayRenderer getRenderer()
+	{
+		return renderer;
+	}
+
+	public EventBus getEventBus()
+	{
+		return eventBus;
+	}
+
+	public static OptionSet getOptions()
+	{
+		return options;
+	}
 }

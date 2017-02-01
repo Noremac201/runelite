@@ -36,46 +36,30 @@ import java.util.List;
 
 public class TopDownRendererLeft
 {
-    private static final int BORDER_TOP = 25;
-    private static final int BORDER_LEFT = 10;
-    private static final int PADDING = 2;
-    private static final int MARGin = 2;
+	private static final int BORDER_TOP = 25;
+	private static final int BORDER_LEFT = 10;
+	private static final int PADDING = 2;
+	private static final int MARGin = 2;
 
-    private final List<Overlay> overlays = new ArrayList<>();
+	private final List<Overlay> overlays = new ArrayList<>();
 
-    public void add(Overlay overlay)
-    {
-        overlays.add(overlay);
-    }
+	public void add(Overlay overlay)
+	{
+		overlays.add(overlay);
+	}
 
-    public void render(BufferedImage clientBuffer)
-    {
-        overlays.sort((o1, o2) -> o2.getPriority().compareTo(o1.getPriority()));
-        int y = BORDER_TOP;
-        Client c = RuneLite.getClient();
-        for (Overlay overlay : overlays)
-        {
+	public void render(BufferedImage clientBuffer)
+	{
+		overlays.sort((o1, o2) -> o2.getPriority().compareTo(o1.getPriority()));
+		int y = BORDER_TOP;
+		Client c = RuneLite.getClient();
+		for (Overlay overlay : overlays)
+		{
 
-            BufferedImage image = null;
-            switch (overlay.getPosition())
-            {
-                case TOP_LEFT:
-                    image = clientBuffer.getSubimage(BORDER_LEFT, y, clientBuffer.getWidth() - BORDER_LEFT, clientBuffer.getHeight() - y);//(int) dimension.getWidth(), (int) dimension.getHeight());
-                    break;
-                case TOP_RIGHT:
-                    image = clientBuffer.getSubimage(0, 0, c.getClientWidth(), 30);
-                    break;
-                case CUSTOM:
-                    if (c.isResized())
-                        image = clientBuffer.getSubimage(c.getClientWidth() / 2, 100, 50, c.getClientHeight() / 3);
-                    else
-                        image = clientBuffer.getSubimage(210, 0, 100, c.getClientHeight());
-                    break;
-            }
-
-            Graphics2D graphics = image.createGraphics();
-            Dimension dimension = overlay.render(graphics);
-            graphics.dispose();
+			BufferedImage image = clientBuffer.getSubimage(BORDER_LEFT, y, clientBuffer.getWidth() - BORDER_LEFT, clientBuffer.getHeight() - y);//(int) dimension.getWidth(), (int) dimension.getHeight());
+			Graphics2D graphics = image.createGraphics();
+			Dimension dimension = overlay.render(graphics);
+			graphics.dispose();
 
 			if (dimension == null)
 				continue;
