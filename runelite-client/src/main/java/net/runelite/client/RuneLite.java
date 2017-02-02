@@ -34,8 +34,6 @@ import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import net.runelite.api.Client;
 import net.runelite.client.plugins.PluginManager;
-import net.runelite.client.plugins.experiencedrops.ExpDropsOverlay;
-import net.runelite.client.plugins.experiencedrops.ExpListener;
 import net.runelite.client.ui.ClientUI;
 import net.runelite.client.ui.overlay.OverlayRenderer;
 import org.slf4j.Logger;
@@ -66,9 +64,6 @@ public class RuneLite
 
 		runelite = new RuneLite();
 		runelite.start();
-
-		RuneLite.getRunelite().getEventBus().register(new ExpListener());
-
 	}
 
 	public void start() throws Exception

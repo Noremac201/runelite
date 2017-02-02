@@ -19,7 +19,7 @@ public class ExpDropsOverlay extends Overlay
 	private static int[] newXP = new int[23];
 	public static boolean expChangeFlag = false;
 	private static LinkedList<Drop> xp = new LinkedList<>();
-	private static ExpListener listener = new ExpListener();
+	private static ExperienceDrops listener = new ExperienceDrops();
 
 	public ExpDropsOverlay(OverlayPosition position, OverlayPriority priority)
 	{
