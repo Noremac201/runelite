@@ -25,7 +25,6 @@
 
 package net.runelite.rs.api;
 
-import net.runelite.mapping.Export;
 import net.runelite.mapping.Import;
 
 import java.awt.*;

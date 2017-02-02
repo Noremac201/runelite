@@ -27,7 +27,6 @@ package net.runelite.api;
 
 import java.awt.*;
 import java.util.Arrays;
-import java.util.Map;
 
 public class Client
 {
@@ -42,7 +41,7 @@ public class Client
 	{
 		if (client.getLocalPlayer() == null)
 			return null;
-
+		
 		return new Player(this, client.getLocalPlayer());
 	}
 
