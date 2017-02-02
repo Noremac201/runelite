@@ -26,6 +26,7 @@
 package net.runelite.client.ui.overlay;
 
 import java.awt.image.BufferedImage;
+
 import net.runelite.client.RuneLite;
 import net.runelite.client.plugins.Plugin;
 
