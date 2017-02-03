@@ -25,8 +25,16 @@
 
 package net.runelite.client.plugins.opponentinfo;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.ui.overlay.Overlay;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.lang.reflect.Type;
+import java.util.Map;
 
 public class OpponentInfo extends Plugin
 {
@@ -37,4 +45,23 @@ public class OpponentInfo extends Plugin
 	{
 		return overlay;
 	}
+
+	public static Map<String, Integer> loadJSON()
+	{
+		Gson gson = new Gson();
+		Type type = new TypeToken<Map<String, Integer>>()
+		{
+		}.getType();
+		Map<String, Integer> myMap = null;
+		try
+		{
+			FileReader healthFile = new FileReader(OpponentInfo.class.getClassLoader().getResource("npcHealth.json").getFile());
+			myMap = gson.fromJson(healthFile, type);
+		} catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		return myMap;
+	}
+
 }

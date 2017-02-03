@@ -25,6 +25,8 @@
 
 package net.runelite.api;
 
+import net.runelite.rs.api.*;
+
 public abstract class Actor extends Renderable
 {
 	private Client client;
@@ -37,6 +39,10 @@ public abstract class Actor extends Renderable
 		this.client = client;
 		this.actor = actor;
 	}
+
+	public abstract int getCombatLevel();
+
+	public abstract int getID();
 
 	public abstract String getName();
 
@@ -57,5 +63,51 @@ public abstract class Actor extends Renderable
 		// XXX is this correct for i = 32767 ?
 		i = i - 32767 - 1;
 		return client.getPlayers()[i];
+	}
+
+	public int getHealthRatio()
+	{
+		CombatInfoList combatInfoList = actor.getCombatInfoList();
+		if (combatInfoList != null)
+		{
+			Node node = combatInfoList.getNode();
+			Node next = node.getNext();
+			if (next instanceof CombatInfoListHolder)
+			{
+				CombatInfoListHolder combatInfoListWrapper = (CombatInfoListHolder) next;
+				CombatInfoList combatInfoList2 = combatInfoListWrapper.getCombatInfo1();
+
+				Node node2 = combatInfoList2.getNode();
+				Node next2 = node2.getNext();
+				if (next2 instanceof CombatInfo1)
+				{
+					CombatInfo1 combatInfo = (CombatInfo1) next2;
+					return combatInfo.getHealthRatio();
+				}
+			}
+		}
+		return -1;
+	}
+
+	public int getMaxHealth()
+	{
+		return -1;
+	}
+
+	public int getHealth()
+	{
+		CombatInfoList combatInfoList = actor.getCombatInfoList();
+		if (combatInfoList != null)
+		{
+			Node node = combatInfoList.getNode();
+			Node next = node.getNext();
+			if (next instanceof CombatInfoListHolder)
+			{
+				CombatInfoListHolder combatInfoListWrapper = (CombatInfoListHolder) next;
+				CombatInfo2 cf = combatInfoListWrapper.getCombatInfo2();
+				return cf.getHealthScale();
+			}
+		}
+		return -1;
 	}
 }
