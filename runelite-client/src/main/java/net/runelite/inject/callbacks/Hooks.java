@@ -26,6 +26,7 @@ package net.runelite.inject.callbacks;
 
 import net.runelite.client.RuneLite;
 import net.runelite.client.events.ExperienceChanged;
+import net.runelite.client.events.NPCChanged;
 import net.runelite.client.plugins.bosstimers.BossTimersOverlay;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,13 +50,13 @@ public class Hooks
 			case "experienceChanged":
 			{
 				ExperienceChanged experienceChanged = new ExperienceChanged(idx);
-				//experienceChanged.setIndex(idx);
 				runelite.getEventBus().post(experienceChanged);
 				break;
 			}
-			case "npcChange":
+			case "npcChanged":
 			{
-				runelite.getEventBus().post(BossTimersOverlay.npcChange = true);
+				NPCChanged npcChanged = new NPCChanged(idx);
+				runelite.getEventBus().post(npcChanged);
 				break;
 			}
 			default:

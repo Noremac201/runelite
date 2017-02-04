@@ -7,9 +7,17 @@ import net.runelite.client.plugins.bosstimers.BossTimersOverlay;
  */
 public class NPCChanged
 {
-	public NPCChanged()
+	private int index;
 
+	public NPCChanged(int index)
 	{
-		BossTimersOverlay.npcChange = true;
+		System.out.println("npc changed");
+		this.index = index;
 	}
+
+	public int getIndex()
+	{
+		return this.index;
+	}
+
 }

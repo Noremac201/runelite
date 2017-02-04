@@ -41,7 +41,7 @@ public final class Client extends GameEngine {
    static boolean field283 = false;
    @ObfuscatedName("cf")
    @Export("cachedNPCs")
-   @Hook("npcChange")
+   @Hook("npcChanged")
    static NPC[] cachedNPCs;
    @ObfuscatedName("z")
    @ObfuscatedGetter(

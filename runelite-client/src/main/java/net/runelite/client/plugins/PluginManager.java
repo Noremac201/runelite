@@ -51,6 +51,8 @@ public class PluginManager
 		load(new Boosts());
 		load(new OpponentInfo());
 		load(new FPS());
+		load(new ExperienceDrops());
+		load(new BossTimers());
 	}
 
 	private void load(Plugin plugin)
