@@ -25,16 +25,14 @@
 
 package net.runelite.client.plugins;
 
+import net.runelite.client.RuneLite;
+import net.runelite.client.plugins.boosts.Boosts;
+import net.runelite.client.plugins.fpsinfo.FPS;
+import net.runelite.client.plugins.opponentinfo.OpponentInfo;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import net.runelite.client.RuneLite;
-import net.runelite.client.plugins.boosts.Boosts;
-import net.runelite.client.plugins.bosstimers.BossTimers;
-import net.runelite.client.plugins.experiencedrops.ExperienceDrops;
-import net.runelite.client.plugins.fpsinfo.FPS;
-import net.runelite.client.plugins.opponentinfo.OpponentInfo;
 
 public class PluginManager
 {
@@ -51,8 +49,6 @@ public class PluginManager
 		load(new Boosts());
 		load(new OpponentInfo());
 		load(new FPS());
-		load(new ExperienceDrops());
-		load(new BossTimers());
 	}
 
 	private void load(Plugin plugin)
@@ -65,4 +61,5 @@ public class PluginManager
 	{
 		return plugins;
 	}
+
 }

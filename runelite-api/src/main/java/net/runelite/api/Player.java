@@ -27,20 +27,32 @@ package net.runelite.api;
 
 public class Player extends Actor
 {
-    private Client client;
-    private net.runelite.rs.api.Player player;
+	private Client client;
+	private net.runelite.rs.api.Player player;
 
-    public Player(Client client, net.runelite.rs.api.Player player)
-    {
-        super(client, player);
+	public Player(Client client, net.runelite.rs.api.Player player)
+	{
+		super(client, player);
 
-        this.player = player;
-        this.client = client;
-    }
+		this.player = player;
+		this.client = client;
+	}
 
-    @Override
-    public String getName()
-    {
-        return player.getName();
-    }
+	@Override
+	public String getName()
+	{
+		return player.getName();
+	}
+
+	@Override
+	public int getCombatLevel()
+	{
+		return player.getCombatLevel();
+	}
+
+	@Override
+	public int getID()
+	{
+		return -1;
+	}
 }

@@ -29,96 +29,85 @@ import net.runelite.rs.api.*;
 
 public abstract class Actor extends Renderable
 {
-    private Client client;
-    private net.runelite.rs.api.Actor actor;
+	private Client client;
+	private net.runelite.rs.api.Actor actor;
 
-    public Actor(Client client, net.runelite.rs.api.Actor actor)
-    {
-        super(actor);
+	public Actor(Client client, net.runelite.rs.api.Actor actor)
+	{
+		super(actor);
 
-        this.client = client;
-        this.actor = actor;
-    }
+		this.client = client;
+		this.actor = actor;
+	}
 
-    public abstract String getName();
+	public abstract int getCombatLevel();
 
-    public Actor getInteracting()
-    {
-        int i = actor.getInteracting();
-        if (i == -1)
-        {
-            return null;
-        }
+	public abstract int getID();
 
-        // logic taken from runeloader.
-        if (i < 32767)
-        {
-            return client.getNpcs()[i];
-        }
+	public abstract String getName();
 
-        // XXX is this correct for i = 32767 ?
-        i = i - 32767 - 1;
-        return client.getPlayers()[i];
-    }
+	public Actor getInteracting()
+	{
+		int i = actor.getInteracting();
+		if (i == -1)
+		{
+			return null;
+		}
 
-    public int getHealthRatio()
-    {
-        CombatInfoList combatInfoList = actor.getCombatInfoList();
-        if (combatInfoList != null)
-        {
-            Node node = combatInfoList.getNode();
-            Node next = node.getNext();
-            if (next instanceof CombatInfoListHolder)
-            {
-                CombatInfoListHolder combatInfoListWrapper = (CombatInfoListHolder) next;
-                CombatInfoList combatInfoList2 = combatInfoListWrapper.getCombatInfo1();
+		// logic taken from runeloader.
+		if (i < 32767)
+		{
+			return client.getNpcs()[i];
+		}
 
-                Node node2 = combatInfoList2.getNode();
-                Node next2 = node2.getNext();
-                if (next2 instanceof CombatInfo1)
-                {
-                    CombatInfo1 combatInfo = (CombatInfo1) next2;
-                    return combatInfo.getHealthRatio();
-                }
-            }
-        }
-        return -1;
-    }
+		// XXX is this correct for i = 32767 ?
+		i = i - 32767 - 1;
+		return client.getPlayers()[i];
+	}
 
-    public int getMaxHealth()
-    {
-        return -1;
-    }
+	public int getHealthRatio()
+	{
+		CombatInfoList combatInfoList = actor.getCombatInfoList();
+		if (combatInfoList != null)
+		{
+			Node node = combatInfoList.getNode();
+			Node next = node.getNext();
+			if (next instanceof CombatInfoListHolder)
+			{
+				CombatInfoListHolder combatInfoListWrapper = (CombatInfoListHolder) next;
+				CombatInfoList combatInfoList2 = combatInfoListWrapper.getCombatInfo1();
 
-    public int getHealth()
-    {
-        CombatInfoList combatInfoList = actor.getCombatInfoList();
-        if (combatInfoList != null)
-        {
-            Node node = combatInfoList.getNode();
-            Node next = node.getNext();
-            if (next instanceof CombatInfoListHolder)
-            {
-                CombatInfoListHolder combatInfoListWrapper = (CombatInfoListHolder) next;
-                CombatInfo2 cf = combatInfoListWrapper.getCombatInfo2();
-                return cf.getHealthScale();
-            }
-        }
-        return -1;
-    }
+				Node node2 = combatInfoList2.getNode();
+				Node next2 = node2.getNext();
+				if (next2 instanceof CombatInfo1)
+				{
+					CombatInfo1 combatInfo = (CombatInfo1) next2;
+					return combatInfo.getHealthRatio();
+				}
+			}
+		}
+		return -1;
+	}
 
-    public int getX()
-    {
-        return actor.getX();
-    }
+	public int getMaxHealth()
+	{
+		return -1;
+	}
 
-    public int getY()
-    {
-        return actor.getY();
-    }
-
-    public int getID()
-    {
-        return -1;
-    }
+	public int getHealth()
+	{
+		CombatInfoList combatInfoList = actor.getCombatInfoList();
+		if (combatInfoList != null)
+		{
+			Node node = combatInfoList.getNode();
+			Node next = node.getNext();
+			if (next instanceof CombatInfoListHolder)
+			{
+				CombatInfoListHolder combatInfoListWrapper = (CombatInfoListHolder) next;
+				CombatInfo2 cf = combatInfoListWrapper.getCombatInfo2();
+				return cf.getHealthScale();
+			}
+		}
+		return -1;
+	}
 }

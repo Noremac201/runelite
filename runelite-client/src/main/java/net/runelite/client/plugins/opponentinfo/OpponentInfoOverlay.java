@@ -25,7 +25,10 @@
 
 package net.runelite.client.plugins.opponentinfo;
 
-import net.runelite.api.*;
+import net.runelite.api.Actor;
+import net.runelite.api.Client;
+import net.runelite.api.GameState;
+import net.runelite.api.Player;
 import net.runelite.client.RuneLite;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayPosition;
@@ -34,93 +37,111 @@ import net.runelite.client.ui.overlay.OverlayPriority;
 import java.awt.*;
 import java.text.DecimalFormat;
 import java.time.Instant;
+import java.util.Map;
 
 class OpponentInfoOverlay extends Overlay
 {
-    private static final int WIDTH = 140;
+	private static final int WIDTH = 140;
 
-    private static final int TOP_BORDER = 2;
-    private static final int BOTTOM_BORDER = 2;
+	private static final int TOP_BORDER = 2;
+	private static final int BOTTOM_BORDER = 2;
 
-    private static final int BAR_WIDTH = 124;
-    private static final int BAR_HEIGHT = 20;
-    //private static Font currFont = new Font("Inconsolata", Font.TRUETYPE_FONT, 16);
-    private static DecimalFormat df = new DecimalFormat("0.0");
-    private static final Color BACKGROUND = new Color(Color.gray.getRed(), Color.gray.getGreen(), Color.gray.getBlue(), 127);
-    private static final Color HP_GREEN = new Color(0, 146, 54, 230);
-    private static final Color HP_RED = new Color(102, 15, 16, 230);
+	private static final int BAR_WIDTH = 124;
+	private static final int BAR_HEIGHT = 20;
 
-    private static float lastRatio = 0;
-    private static Instant lastTime = Instant.now();
-    private static String str = "";
+	private static final Color BACKGROUND = new Color(Color.gray.getRed(), Color.gray.getGreen(), Color.gray.getBlue(), 127);
+	private static final Color HP_GREEN = new Color(0, 146, 54, 230);
+	private static final Color HP_RED = new Color(102, 15, 16, 230);
 
-    OpponentInfoOverlay()
-    {
-        super(OverlayPosition.TOP_LEFT, OverlayPriority.HIGH);
-    }
+	private static Integer lastMaxHealth;
+	private static DecimalFormat df;
+	private static float lastRatio = 0;
+	private static Instant lastTime;
+	private static String str;
+	private static Map<String, Integer> oppInfoHealth;
 
-    private Actor getOpponent()
-    {
-        Client client = RuneLite.getClient();
+	static
+	{
+		str = "";
+		lastTime = Instant.now();
+		df = new DecimalFormat("0.0");
+		oppInfoHealth = OpponentInfo.loadJSON();
+	}
 
-        Player player = client.getLocalPlayer();
-        if (player == null)
-            return null;
+	OpponentInfoOverlay()
+	{
+		super(OverlayPosition.TOP_LEFT, OverlayPriority.HIGH);
+	}
 
-        return player.getInteracting();
-    }
+	private Actor getOpponent()
+	{
+		Client client = RuneLite.getClient();
 
-    @Override
-    public Dimension render(Graphics2D graphics)
-    {
-        if (RuneLite.getClient().getGameState() != GameState.LOGGED_IN)
-            return null;
+		Player player = client.getLocalPlayer();
+		if (player == null)
+			return null;
 
-        Actor opponent = getOpponent();
+		return player.getInteracting();
+	}
 
-        if (opponent != null && opponent.getHealth() != -1)
-        {
-            lastTime = Instant.now();
-            lastRatio = (float) opponent.getHealthRatio() / (float) opponent.getHealth() * 100;
-            str = opponent.getName() + " (" + opponent.getID() + ")";
-        }
+	@Override
+	public Dimension render(Graphics2D graphics)
+	{
+		if (RuneLite.getClient().getGameState() != GameState.LOGGED_IN)
+			return null;
 
-        if (Instant.now().toEpochMilli() - lastTime.toEpochMilli() > 3000) //and 3 seconds have passed.
-            return null;
+		Actor opponent = getOpponent();
 
-        //graphics.setFont(currFont);
-        FontMetrics fm = graphics.getFontMetrics();
+		if (opponent != null && opponent.getHealth() != -1)
+		{
+			lastTime = Instant.now();
+			lastRatio = (float) opponent.getHealthRatio() / (float) opponent.getHealth();
+			str = opponent.getName();// + " (" + opponent.getID() + ")";
+			lastMaxHealth = oppInfoHealth.get(opponent.getName() + "_" + opponent.getCombatLevel());
+		}
 
-        int height = TOP_BORDER
-                + fm.getHeight(); // opponent name
-        if (lastRatio >= 0)
-            height += 2 // between name and hp bar
-                    + BAR_HEIGHT; // bar
-        height += BOTTOM_BORDER;
+		if (Instant.now().toEpochMilli() - lastTime.toEpochMilli() > 3000) //and 3 seconds have passed.
+			return null; //don't draw anything.
 
-        graphics.setColor(BACKGROUND);
-        graphics.fillRect(0, 0, WIDTH, height);
+		FontMetrics fm = graphics.getFontMetrics();
 
-        int x = (WIDTH - fm.stringWidth(str)) / 2;
-        graphics.setColor(Color.white);
-        graphics.drawString(str, x, fm.getHeight() + TOP_BORDER);
+		int height = TOP_BORDER
+				+ fm.getHeight(); // opponent name
+		if (lastRatio >= 0)
+			height += 2 // between name and hp bar
+					+ BAR_HEIGHT; // bar
+		height += BOTTOM_BORDER;
 
-        if (lastRatio >= 0)
-        {
-            int barWidth = (int) (lastRatio / 100 * (float) BAR_WIDTH);
-            int barY = TOP_BORDER + fm.getHeight() + 1;
+		graphics.setColor(BACKGROUND);
+		graphics.fillRect(0, 0, WIDTH, height);
 
-            graphics.setColor(HP_GREEN);
-            graphics.fillRect((WIDTH - BAR_WIDTH) / 2, barY, barWidth, BAR_HEIGHT);
+		int x = (WIDTH - fm.stringWidth(str)) / 2;
+		graphics.setColor(Color.white);
+		graphics.drawString(str, x, fm.getHeight() + TOP_BORDER);
 
-            graphics.setColor(HP_RED);
-            graphics.fillRect(((WIDTH - BAR_WIDTH) / 2) + barWidth, barY, BAR_WIDTH - barWidth, BAR_HEIGHT);
+		if (lastRatio >= 0)
+		{
+			int barWidth = (int) (lastRatio * (float) BAR_WIDTH);
+			int barY = TOP_BORDER + fm.getHeight() + 1;
 
-            graphics.setColor(Color.white);
-            String percent = df.format(lastRatio);
-            graphics.drawString(percent +"%", (WIDTH - fm.stringWidth(percent + "%")) / 2, barY + fm.getHeight());
-        }
+			graphics.setColor(HP_GREEN);
+			graphics.fillRect((WIDTH - BAR_WIDTH) / 2, barY, barWidth, BAR_HEIGHT);
 
-        return new Dimension(WIDTH, height);
-    }
+			graphics.setColor(HP_RED);
+			graphics.fillRect(((WIDTH - BAR_WIDTH) / 2) + barWidth, barY, BAR_WIDTH - barWidth, BAR_HEIGHT);
+
+			graphics.setColor(Color.white);
+			String percent = df.format(lastRatio * 100);
+			if (lastMaxHealth != null)
+			{
+				int currHealth = (int) (lastRatio * lastMaxHealth);
+				String str = currHealth + "/" + lastMaxHealth;
+				graphics.drawString(str, (WIDTH - fm.stringWidth(str)) / 2, barY + fm.getHeight());
+			} else
+			{
+				graphics.drawString(percent + "%", (WIDTH - fm.stringWidth(percent)) / 2, barY + fm.getHeight());
+			}
+		}
+		return new Dimension(WIDTH, height);
+	}
 }
