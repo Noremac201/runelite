@@ -1,0 +1,27 @@
+{
+  "10942": {
+    "spawnTime": 90,
+    "bossName": "Bandos",
+    "isDead": false
+  },
+  "15628": {
+    "spawnTime": 90,
+    "bossName": "Saradomin",
+    "isDead": false
+  },
+  "6516": {
+    "spawnTime": 90,
+    "bossName": "Zamorak",
+    "isDead": false
+  },
+  "10394": {
+    "spawnTime": 90,
+    "bossName": "Armadyl",
+    "isDead": false
+  },
+  "16718": {
+    "spawnTime": 30,
+    "bossName": "Corporeal Beast",
+    "isDead": false
+  }
+}

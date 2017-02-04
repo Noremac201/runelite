@@ -41,9 +41,4 @@ public class ExperienceChanged
 	{
 		return index;
 	}
-
-//	public void setIndex(int index)
-//	{
-//		this.index = index;
-//	}
 }

@@ -3223,7 +3223,6 @@ public final class Client extends GameEngine {
    )
    @Export("messageReceived")
    static String method568(int var0) {
-      System.out.println("message recieved");
       return "<col=" + Integer.toHexString(var0) + ">";
    }
 
