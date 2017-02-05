@@ -74,7 +74,6 @@ public class RuneLite
 		pluginManager.loadAll();
 
 		renderer = new OverlayRenderer();
-		//gui.reCenter();
 	}
 
 	private void eventExceptionHandler(Throwable exception, SubscriberExceptionContext context)

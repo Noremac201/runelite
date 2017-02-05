@@ -233,4 +233,10 @@ public interface Client extends GameEngine
 
 	@Import("totalNPC")
 	int getTotalNPC();
+
+	@Import("npcIndex")
+	int[] getNpcIndex();
+
+	@Import("idleTime")
+	int getIdleTime();
 }

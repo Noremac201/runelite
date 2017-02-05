@@ -25,6 +25,9 @@
 
 package net.runelite.api;
 
+import net.runelite.rs.api.Widget;
+import net.runelite.rs.api.XGrandExchangeOffer;
+
 import java.awt.*;
 import java.util.Arrays;
 
@@ -41,7 +44,7 @@ public class Client
 	{
 		if (client.getLocalPlayer() == null)
 			return null;
-		
+
 		return new Player(this, client.getLocalPlayer());
 	}
 
@@ -76,7 +79,7 @@ public class Client
 
 	public void sendGameMessage(String message)
 	{
-		client.sendGameMessage(99, "", message);
+		client.sendGameMessage(0, "", message);
 	}
 
 	public GameState getGameState()
@@ -107,5 +110,25 @@ public class Client
 	public boolean isResized()
 	{
 		return client.isResized();
+	}
+
+	public XGrandExchangeOffer[] getGrandExchangeOffers()
+	{
+		return client.getGrandExchangeOffers();
+	}
+
+	public Widget[][] getWidgets()
+	{
+		return client.getWidgets();
+	}
+
+	public int[] getNPCIndex()
+	{
+		return client.getNpcIndex();
+	}
+
+	public int getIdleTime()
+	{
+		return client.getIdleTime();
 	}
 }

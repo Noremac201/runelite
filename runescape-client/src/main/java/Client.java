@@ -81,6 +81,7 @@ public final class Client extends GameEngine {
    @ObfuscatedGetter(
       intValue = -794189975
    )
+   @Export("idleTime")
    static int field292 = -1;
    @ObfuscatedName("am")
    static boolean field293 = true;
