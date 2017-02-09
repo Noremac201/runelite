@@ -25,7 +25,10 @@
 
 package net.runelite.client.ui;
 
-import java.awt.event.*;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
@@ -50,14 +53,7 @@ public final class ClientUI extends JFrame
 	private void init() throws Exception
 	{
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-		addComponentListener(new ComponentAdapter()
-		{
-			@Override
-			public void componentResized(ComponentEvent e)
-			{
-				SwingUtilities.invokeLater(() -> pack());
-			}
-		});
+
 		addWindowListener(new WindowAdapter()
 		{
 			@Override
@@ -71,7 +67,8 @@ public final class ClientUI extends JFrame
 		try
 		{
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored)
+		}
+		catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ignored)
 		{
 		}
 
