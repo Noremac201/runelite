@@ -1,0 +1,62 @@
+{
+  "10942": {
+    "spawnTime": 90,
+    "bossName": "Bandos"
+  },
+  "15628": {
+    "spawnTime": 90,
+    "bossName": "Saradomin"
+  },
+  "6516": {
+    "spawnTime": 90,
+    "bossName": "Zamorak"
+  },
+  "10394": {
+    "spawnTime": 90,
+    "bossName": "Armadyl"
+  },
+  "16718": {
+    "spawnTime": 30,
+    "bossName": "Corporeal Beast"
+  },
+  "14987": {
+    "spawnTime": 30,
+    "bossName": "Venenatis"
+  },
+  "9583": {
+    "spawnTime": 10,
+    "bossName": "Scorpia"
+  },
+  "2342": {
+    "spawnTime": 30,
+    "bossName": "Vet'ion"
+  },
+  "11740": {
+    "spawnTime": 90,
+    "bossName": "Dagganoth Rex"
+  },
+  "11738": {
+    "spawnTime": 90,
+    "bossName": "Dagganoth Prime"
+  },
+  "11735": {
+    "spawnTime": 90,
+    "bossName": "Dagganoth Supreme"
+  },
+  "13466": {
+    "spawnTime": 10,
+    "bossName": "KBD"
+  },
+  "8027": {
+    "spawnTime": 30,
+    "bossName": "Crazy Archaeologist"
+  },
+  "715": {
+    "spawnTime": 30,
+    "bossName": "Chaos Fanatic"
+  },
+  "8692": {
+    "spawnTime": 30,
+    "bossName": "Callisto"
+  }
+}

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, Adam <Adam@sigterm.info>
+ * Copyright (c) 2016-2017, Cameron Moberg <Moberg@tuta.io>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,47 +22,57 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.inject.callbacks;
 
-import net.runelite.client.RuneLite;
-import net.runelite.client.events.ExperienceChanged;
-import net.runelite.client.events.NPCChanged;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package net.runelite.client.plugins.bosstimer;
 
-public class Hooks
+import java.time.temporal.Temporal;
+
+public class Boss
 {
-	private static final Logger logger = LoggerFactory.getLogger(Hooks.class);
+	private int spawnTime;
+	private String bossName;
+	private boolean isDead;
+	private Temporal timeToSpawn;
 
-	private static final RuneLite runelite = RuneLite.getRunelite();
-
-	public static void callHook(String name, int idx, Object object)
+	/**
+	 * @param spawnTime Spawn time of boss in seconds.
+	 */
+	public Boss(int spawnTime, String bossName)
 	{
-		if (RuneLite.getClient() == null)
-		{
-			logger.warn("Event {} triggered prior to client being ready", name);
-			return;
-		}
-
-		switch (name)
-		{
-			case "experienceChanged":
-			{
-				ExperienceChanged experienceChanged = new ExperienceChanged();
-				experienceChanged.setIndex(idx);
-				runelite.getEventBus().post(experienceChanged);
-				break;
-			}
-			case "npcChanged":
-				NPCChanged npcChanged = new NPCChanged();
-				npcChanged.setIndex(idx);
-				runelite.getEventBus().post(npcChanged);
-				break;
-			default:
-				logger.warn("Unknown event {} triggered on {}", name, object);
-				return;
-		}
-
-		logger.debug("Event {} triggered on {}", name, object);
+		this.spawnTime = spawnTime;
+		this.bossName = bossName;
+		this.isDead = false;
 	}
+
+	public int getSpawnTime()
+	{
+		return spawnTime;
+	}
+
+	public String getBossName()
+	{
+		return bossName;
+	}
+
+	public void setIsDead(boolean isDead)
+	{
+		this.isDead = isDead;
+	}
+
+	public boolean isDead()
+	{
+		return this.isDead;
+	}
+
+
+	public void setTimeToSpawn(Temporal timeLeft)
+	{
+		timeToSpawn = timeLeft;
+	}
+
+	public Temporal getTimeToSpawn()
+	{
+		return timeToSpawn;
+	}
+
 }

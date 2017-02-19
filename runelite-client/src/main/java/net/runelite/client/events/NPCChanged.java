@@ -22,47 +22,21 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.inject.callbacks;
 
-import net.runelite.client.RuneLite;
-import net.runelite.client.events.ExperienceChanged;
-import net.runelite.client.events.NPCChanged;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package net.runelite.client.events;
 
-public class Hooks
+public class NPCChanged
 {
-	private static final Logger logger = LoggerFactory.getLogger(Hooks.class);
+	/** the index in the array which changed */
+	private int index;
 
-	private static final RuneLite runelite = RuneLite.getRunelite();
-
-	public static void callHook(String name, int idx, Object object)
+	public int getIndex()
 	{
-		if (RuneLite.getClient() == null)
-		{
-			logger.warn("Event {} triggered prior to client being ready", name);
-			return;
-		}
+		return index;
+	}
 
-		switch (name)
-		{
-			case "experienceChanged":
-			{
-				ExperienceChanged experienceChanged = new ExperienceChanged();
-				experienceChanged.setIndex(idx);
-				runelite.getEventBus().post(experienceChanged);
-				break;
-			}
-			case "npcChanged":
-				NPCChanged npcChanged = new NPCChanged();
-				npcChanged.setIndex(idx);
-				runelite.getEventBus().post(npcChanged);
-				break;
-			default:
-				logger.warn("Unknown event {} triggered on {}", name, object);
-				return;
-		}
-
-		logger.debug("Event {} triggered on {}", name, object);
+	public void setIndex(int index)
+	{
+		this.index = index;
 	}
 }

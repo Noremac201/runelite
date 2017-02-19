@@ -188,6 +188,7 @@ public final class Client extends GameEngine {
    static int energy;
    @ObfuscatedName("ch")
    @Export("cachedNPCs")
+   @Hook("npcChanged")
    static NPC[] cachedNPCs;
    @ObfuscatedName("cf")
    @ObfuscatedGetter(
