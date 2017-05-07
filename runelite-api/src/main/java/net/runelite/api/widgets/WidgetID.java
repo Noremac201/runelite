@@ -32,6 +32,8 @@ class WidgetID
 
 	static final int CLAN_CHAT_GROUP_ID = 7;
 
+	static final int CHAT_BOX_GROUP_ID = 162;
+
 	static class PestControl
 	{
 		static final int PURPLE_SHIELD = 18;
@@ -55,5 +57,10 @@ class WidgetID
 		static final int TITLE = 1;
 		static final int NAME = 3;
 		static final int OWNER = 5;
+	}
+
+	static class BottomBar
+	{
+		static final int REPORT = 28;
 	}
 }

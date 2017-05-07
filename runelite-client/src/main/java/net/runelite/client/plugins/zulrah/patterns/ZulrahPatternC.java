@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, Cameron Moberg <moberg@tuta.io>
+ * Copyright (c) 2017, Aria <aria@ar1as.space>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,52 +22,26 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.fpsinfo;
+package net.runelite.client.plugins.zulrah.patterns;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
-import net.runelite.api.Client;
-import net.runelite.api.GameState;
-import net.runelite.client.RuneLite;
-import net.runelite.client.ui.overlay.Overlay;
-import net.runelite.client.ui.overlay.OverlayPosition;
-import net.runelite.client.ui.overlay.OverlayPriority;
+import net.runelite.client.plugins.zulrah.StandLocation;
+import net.runelite.client.plugins.zulrah.ZulrahLocation;
+import net.runelite.client.plugins.zulrah.ZulrahType;
 
-public class FPSOverlay extends Overlay
+public class ZulrahPatternC extends ZulrahPattern
 {
-	private static final Client client = RuneLite.getClient();
-
-	public FPSOverlay()
+	public ZulrahPatternC()
 	{
-		super(OverlayPosition.TOP_RIGHT, OverlayPriority.HIGH);
-	}
-
-	@Override
-	public Dimension render(Graphics2D graphics)
-	{
-
-		if (client.getGameState() != GameState.LOGGED_IN)
-		{
-			return null;
-		}
-
-		FontMetrics fm = graphics.getFontMetrics();
-		String str = String.valueOf(client.getFPS());
-
-		int x = 0;
-		int y = fm.getHeight();
-		//outline
-		graphics.setColor(Color.black);
-		graphics.drawString(str, x - 1, y + 1);
-		graphics.drawString(str, x - 1, y - 1);
-		graphics.drawString(str, x + 1, y + 1);
-		graphics.drawString(str, x + 1, y - 1);
-		//actual text
-		graphics.setColor(Color.white);
-		graphics.drawString(str, x, y);
-
-		return new Dimension(fm.stringWidth(str), y);
+		add(ZulrahLocation.NORTH, ZulrahType.RANGE, StandLocation.TOP_EAST);
+		add(ZulrahLocation.EAST, ZulrahType.RANGE, StandLocation.TOP_EAST);
+		add(ZulrahLocation.NORTH, ZulrahType.MELEE, StandLocation.TOP_WEST);
+		add(ZulrahLocation.WEST, ZulrahType.MAGIC, StandLocation.TOP_WEST);
+		add(ZulrahLocation.SOUTH, ZulrahType.RANGE, StandLocation.EAST);
+		add(ZulrahLocation.EAST, ZulrahType.MAGIC, StandLocation.PILLAR_EAST_OUTSIDE);
+		add(ZulrahLocation.NORTH, ZulrahType.RANGE, StandLocation.WEST);
+		add(ZulrahLocation.WEST, ZulrahType.RANGE, StandLocation.PILLAR_WEST_OUTSIDE);
+		add(ZulrahLocation.NORTH, ZulrahType.MAGIC, StandLocation.PILLAR_EAST_OUTSIDE);
+		addJad(ZulrahLocation.EAST, ZulrahType.MAGIC, StandLocation.PILLAR_EAST_OUTSIDE);
+		add(ZulrahLocation.NORTH, ZulrahType.MAGIC, StandLocation.EAST);
 	}
 }

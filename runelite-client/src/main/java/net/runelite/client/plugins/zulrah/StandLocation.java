@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, Cameron Moberg <moberg@tuta.io>
+ * Copyright (c) 2017, Aria <aria@ar1as.space>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,52 +22,17 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.fpsinfo;
+package net.runelite.client.plugins.zulrah;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
-import net.runelite.api.Client;
-import net.runelite.api.GameState;
-import net.runelite.client.RuneLite;
-import net.runelite.client.ui.overlay.Overlay;
-import net.runelite.client.ui.overlay.OverlayPosition;
-import net.runelite.client.ui.overlay.OverlayPriority;
-
-public class FPSOverlay extends Overlay
+public enum StandLocation
 {
-	private static final Client client = RuneLite.getClient();
-
-	public FPSOverlay()
-	{
-		super(OverlayPosition.TOP_RIGHT, OverlayPriority.HIGH);
-	}
-
-	@Override
-	public Dimension render(Graphics2D graphics)
-	{
-
-		if (client.getGameState() != GameState.LOGGED_IN)
-		{
-			return null;
-		}
-
-		FontMetrics fm = graphics.getFontMetrics();
-		String str = String.valueOf(client.getFPS());
-
-		int x = 0;
-		int y = fm.getHeight();
-		//outline
-		graphics.setColor(Color.black);
-		graphics.drawString(str, x - 1, y + 1);
-		graphics.drawString(str, x - 1, y - 1);
-		graphics.drawString(str, x + 1, y + 1);
-		graphics.drawString(str, x + 1, y - 1);
-		//actual text
-		graphics.setColor(Color.white);
-		graphics.drawString(str, x, y);
-
-		return new Dimension(fm.stringWidth(str), y);
-	}
+	WEST,
+	EAST,
+	SOUTH,
+	TOP_EAST,
+	TOP_WEST,
+	PILLAR_WEST_INSIDE,
+	PILLAR_WEST_OUTSIDE,
+	PILLAR_EAST_INSIDE,
+	PILLAR_EAST_OUTSIDE;
 }

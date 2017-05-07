@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, Cameron Moberg <moberg@tuta.io>
+ * Copyright (c) 2017, Cameron Moberg
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,52 +22,54 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.fpsinfo;
+package net.runelite.client.plugins.reportbutton;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
+import net.runelite.api.widgets.Widget;
+import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.RuneLite;
-import net.runelite.client.ui.overlay.Overlay;
-import net.runelite.client.ui.overlay.OverlayPosition;
-import net.runelite.client.ui.overlay.OverlayPriority;
+import net.runelite.client.plugins.Plugin;
+import net.runelite.client.plugins.logintracker.LoginTracker;
 
-public class FPSOverlay extends Overlay
+import java.time.Duration;
+import java.time.Instant;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+
+public class ReportButton extends Plugin
 {
-	private static final Client client = RuneLite.getClient();
+	private final Client client = RuneLite.getClient();
+	private ScheduledFuture<?> future;
+	private static final int CHECK_INTERVAL = 500;
 
-	public FPSOverlay()
+	@Override
+	protected void startUp() throws Exception
 	{
-		super(OverlayPosition.TOP_RIGHT, OverlayPriority.HIGH);
+		ScheduledExecutorService executor = RuneLite.getRunelite().getExecutor();
+		future = executor.scheduleAtFixedRate(this::exec, CHECK_INTERVAL, CHECK_INTERVAL, TimeUnit.MILLISECONDS);
 	}
 
 	@Override
-	public Dimension render(Graphics2D graphics)
+	protected void shutDown() throws Exception
 	{
-
-		if (client.getGameState() != GameState.LOGGED_IN)
-		{
-			return null;
-		}
-
-		FontMetrics fm = graphics.getFontMetrics();
-		String str = String.valueOf(client.getFPS());
-
-		int x = 0;
-		int y = fm.getHeight();
-		//outline
-		graphics.setColor(Color.black);
-		graphics.drawString(str, x - 1, y + 1);
-		graphics.drawString(str, x - 1, y - 1);
-		graphics.drawString(str, x + 1, y + 1);
-		graphics.drawString(str, x + 1, y - 1);
-		//actual text
-		graphics.setColor(Color.white);
-		graphics.drawString(str, x, y);
-
-		return new Dimension(fm.stringWidth(str), y);
+		future.cancel(true);
 	}
+
+	public void exec()
+	{
+		if (RuneLite.getClient().getGameState() != GameState.LOGGED_IN)
+			return;
+
+		long time = Duration.between(LoginTracker.getLoginTime(), Instant.now()).getSeconds();
+
+		Widget report = RuneLite.getClient().getWidget(WidgetInfo.BOTTOM_BAR_REPORT);
+
+		if (report != null)
+		{
+			report.setText(String.format("%d:%02d:%02d", time / 3600, (time % 3600) / 60, (time % 60)));
+		}
+	}
+
 }

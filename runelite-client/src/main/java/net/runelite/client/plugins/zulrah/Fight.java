@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, Cameron Moberg <moberg@tuta.io>
+ * Copyright (c) 2017, Adam <Adam@sigterm.info>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,52 +22,68 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.fpsinfo;
+package net.runelite.client.plugins.zulrah;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
-import net.runelite.api.Client;
-import net.runelite.api.GameState;
-import net.runelite.client.RuneLite;
-import net.runelite.client.ui.overlay.Overlay;
-import net.runelite.client.ui.overlay.OverlayPosition;
-import net.runelite.client.ui.overlay.OverlayPriority;
+import java.time.Instant;
+import net.runelite.api.Point;
+import net.runelite.client.plugins.zulrah.patterns.ZulrahPattern;
 
-public class FPSOverlay extends Overlay
+public class Fight
 {
-	private static final Client client = RuneLite.getClient();
+	private final Point startLocationWorld;
+	private final Instant startTime = Instant.now();
+	private ZulrahPattern pattern;
+	private int stage;
+	private ZulrahInstance zulrah;
 
-	public FPSOverlay()
+	public Fight(Point startLocationWorld)
 	{
-		super(OverlayPosition.TOP_RIGHT, OverlayPriority.HIGH);
+		this.startLocationWorld = startLocationWorld;
 	}
 
-	@Override
-	public Dimension render(Graphics2D graphics)
+	public Point getStartLocationWorld()
 	{
+		return startLocationWorld;
+	}
 
-		if (client.getGameState() != GameState.LOGGED_IN)
-		{
-			return null;
-		}
+	public Instant getStartTime()
+	{
+		return startTime;
+	}
 
-		FontMetrics fm = graphics.getFontMetrics();
-		String str = String.valueOf(client.getFPS());
+	public ZulrahPattern getPattern()
+	{
+		return pattern;
+	}
 
-		int x = 0;
-		int y = fm.getHeight();
-		//outline
-		graphics.setColor(Color.black);
-		graphics.drawString(str, x - 1, y + 1);
-		graphics.drawString(str, x - 1, y - 1);
-		graphics.drawString(str, x + 1, y + 1);
-		graphics.drawString(str, x + 1, y - 1);
-		//actual text
-		graphics.setColor(Color.white);
-		graphics.drawString(str, x, y);
+	public void setPattern(ZulrahPattern pattern)
+	{
+		this.pattern = pattern;
+	}
 
-		return new Dimension(fm.stringWidth(str), y);
+	public ZulrahInstance getZulrah()
+	{
+		return zulrah;
+	}
+
+	public void setZulrah(ZulrahInstance zulrah)
+	{
+		this.zulrah = zulrah;
+	}
+
+	public int getStage()
+	{
+		return stage;
+	}
+
+	public void nextStage()
+	{
+		++stage;
+	}
+
+	public void reset()
+	{
+		pattern = null;
+		stage = 0;
 	}
 }

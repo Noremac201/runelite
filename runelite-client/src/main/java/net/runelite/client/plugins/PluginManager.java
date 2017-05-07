@@ -39,11 +39,14 @@ import net.runelite.client.plugins.devtools.DevTools;
 import net.runelite.client.plugins.fpsinfo.FPS;
 import net.runelite.client.plugins.hiscore.Hiscore;
 import net.runelite.client.plugins.idlenotifier.IdleNotifier;
+import net.runelite.client.plugins.logintracker.LoginTracker;
 import net.runelite.client.plugins.mousehighlight.MouseHighlight;
 import net.runelite.client.plugins.opponentinfo.OpponentInfo;
 import net.runelite.client.plugins.pestcontrol.PestControl;
+import net.runelite.client.plugins.reportbutton.ReportButton;
 import net.runelite.client.plugins.runecraft.Runecraft;
 import net.runelite.client.plugins.xtea.Xtea;
+import net.runelite.client.plugins.zulrah.Zulrah;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -73,6 +76,9 @@ public class PluginManager
 		plugins.add(new MouseHighlight());
 		plugins.add(new PestControl());
 		plugins.add(new ClanChat());
+		plugins.add(new Zulrah());
+		plugins.add(new ReportButton());
+		plugins.add(new LoginTracker());
 
 		if (RuneLite.getOptions().has("developer-mode"))
 		{

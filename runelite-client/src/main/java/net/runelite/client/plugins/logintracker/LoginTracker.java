@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, Cameron Moberg <moberg@tuta.io>
+ * Copyright (c) 2017, Cameron Moberg
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,52 +22,64 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.fpsinfo;
+package net.runelite.client.plugins.logintracker;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
+import com.google.common.eventbus.Subscribe;
+
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+
+import static net.runelite.api.AnimationID.*;
+
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
+import net.runelite.api.widgets.Widget;
+import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.RuneLite;
-import net.runelite.client.ui.overlay.Overlay;
-import net.runelite.client.ui.overlay.OverlayPosition;
-import net.runelite.client.ui.overlay.OverlayPriority;
+import net.runelite.client.events.AnimationChanged;
+import net.runelite.client.plugins.Plugin;
 
-public class FPSOverlay extends Overlay
+public class LoginTracker extends Plugin
 {
-	private static final Client client = RuneLite.getClient();
+	private final Client client = RuneLite.getClient();
+	private ScheduledFuture<?> future;
+	private static final int CHECK_INTERVAL = 2;
 
-	public FPSOverlay()
+	private boolean firstLogin = false;
+	private static Instant loginTime;
+
+	@Override
+	protected void startUp() throws Exception
 	{
-		super(OverlayPosition.TOP_RIGHT, OverlayPriority.HIGH);
+		ScheduledExecutorService executor = RuneLite.getRunelite().getExecutor();
+		future = executor.scheduleAtFixedRate(this::checkLog, CHECK_INTERVAL, CHECK_INTERVAL, TimeUnit.SECONDS);
 	}
 
 	@Override
-	public Dimension render(Graphics2D graphics)
+	protected void shutDown() throws Exception
 	{
+		future.cancel(true);
+	}
 
-		if (client.getGameState() != GameState.LOGGED_IN)
+	private void checkLog()
+	{
+		if (RuneLite.getClient().getGameState() != GameState.LOGGED_IN || !firstLogin)
 		{
-			return null;
+			loginTime = Instant.now();
+			firstLogin = true;
+		} else
+		{
+			return;
 		}
+	}
 
-		FontMetrics fm = graphics.getFontMetrics();
-		String str = String.valueOf(client.getFPS());
-
-		int x = 0;
-		int y = fm.getHeight();
-		//outline
-		graphics.setColor(Color.black);
-		graphics.drawString(str, x - 1, y + 1);
-		graphics.drawString(str, x - 1, y - 1);
-		graphics.drawString(str, x + 1, y + 1);
-		graphics.drawString(str, x + 1, y - 1);
-		//actual text
-		graphics.setColor(Color.white);
-		graphics.drawString(str, x, y);
-
-		return new Dimension(fm.stringWidth(str), y);
+	public static Instant getLoginTime()
+	{
+		return loginTime;
 	}
 }
