@@ -24,18 +24,11 @@
  */
 package net.runelite.client.plugins.attackindicator;
 
-import static net.runelite.client.plugins.attackindicator.AttackStyle.CASTING;
-import static net.runelite.client.plugins.attackindicator.AttackStyle.DEFENSIVE_CASTING;
-import static net.runelite.client.plugins.attackindicator.AttackStyle.OTHER;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.google.common.eventbus.Subscribe;
 import com.google.inject.Binder;
 import com.google.inject.Provides;
-import java.time.temporal.ChronoUnit;
-import java.util.HashSet;
-import java.util.Set;
-import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.Skill;
@@ -48,7 +41,12 @@ import net.runelite.client.events.VarbitChanged;
 import net.runelite.client.events.WidgetGroupLoaded;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.task.Schedule;
+
+import javax.inject.Inject;
+import java.util.HashSet;
+import java.util.Set;
+
+import static net.runelite.client.plugins.attackindicator.AttackStyle.*;
 
 @PluginDescriptor(
 	name = "Attack indicator plugin"
@@ -116,16 +114,19 @@ public class AttackIndicatorPlugin extends Plugin
 	@Subscribe
 	public void hideWidgets(WidgetGroupLoaded event)
 	{
-		if(event.getGroupId() == COMBAT_GROUP_ID)
+		if (event.getGroupId() == COMBAT_GROUP_ID)
 		{
-			if (widgetsToHide == null) {
+			if (widgetsToHide == null)
+			{
 				return;
 			}
 
 			WeaponType equippedWeaponType = WeaponType.getWeaponType(equippedWeaponTypeVarbit);
 
-			if (widgetsToHide.containsRow(equippedWeaponType)) {
-				for (WidgetInfo widgetKey : widgetsToHide.row(equippedWeaponType).keySet()) {
+			if (widgetsToHide.containsRow(equippedWeaponType))
+			{
+				for (WidgetInfo widgetKey : widgetsToHide.row(equippedWeaponType).keySet())
+				{
 					hideWidget(client.getWidget(widgetKey), widgetsToHide.get(equippedWeaponType, widgetKey));
 				}
 			}
