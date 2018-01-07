@@ -300,7 +300,6 @@ public class Hooks
 	{
 		WidgetGroupLoaded groupLoaded = new WidgetGroupLoaded();
 		groupLoaded.setGroupId(groupId);
-		System.out.println("group: " + groupId + " loaded");
 
 		eventBus.post(groupLoaded);
 	}
