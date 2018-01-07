@@ -56,6 +56,8 @@ import net.runelite.client.task.Schedule;
 @Slf4j
 public class AttackIndicatorPlugin extends Plugin
 {
+	private static final int COMBAT_GROUP_ID = 593;
+
 	private int attackStyleVarbit = -1;
 	private int equippedWeaponTypeVarbit = -1;
 	private int castingModeVarbit = -1;
@@ -114,18 +116,18 @@ public class AttackIndicatorPlugin extends Plugin
 	@Subscribe
 	public void hideWidgets(WidgetGroupLoaded event)
 	{
-		if (widgetsToHide == null)
+		if(event.getGroupId() == COMBAT_GROUP_ID)
 		{
-			return;
-		}
+			if (widgetsToHide == null) {
+				return;
+			}
 
-		WeaponType equippedWeaponType = WeaponType.getWeaponType(equippedWeaponTypeVarbit);
+			WeaponType equippedWeaponType = WeaponType.getWeaponType(equippedWeaponTypeVarbit);
 
-		if (widgetsToHide.containsRow(equippedWeaponType))
-		{
-			for (WidgetInfo widgetKey : widgetsToHide.row(equippedWeaponType).keySet())
-			{
-				hideWidget(client.getWidget(widgetKey), widgetsToHide.get(equippedWeaponType, widgetKey));
+			if (widgetsToHide.containsRow(equippedWeaponType)) {
+				for (WidgetInfo widgetKey : widgetsToHide.row(equippedWeaponType).keySet()) {
+					hideWidget(client.getWidget(widgetKey), widgetsToHide.get(equippedWeaponType, widgetKey));
+				}
 			}
 		}
 	}
