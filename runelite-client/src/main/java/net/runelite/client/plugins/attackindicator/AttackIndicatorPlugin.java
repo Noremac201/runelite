@@ -45,6 +45,7 @@ import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.events.VarbitChanged;
+import net.runelite.client.events.WidgetGroupLoaded;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.task.Schedule;
@@ -110,11 +111,8 @@ public class AttackIndicatorPlugin extends Plugin
 		updateWarnedSkills(config.warnForMagic(), Skill.MAGIC);
 	}
 
-	@Schedule(
-		period = 600,
-		unit = ChronoUnit.MILLIS
-	)
-	public void hideWidgets()
+	@Subscribe
+	public void hideWidgets(WidgetGroupLoaded event)
 	{
 		if (widgetsToHide == null)
 		{
@@ -131,6 +129,7 @@ public class AttackIndicatorPlugin extends Plugin
 			}
 		}
 	}
+
 
 	@Subscribe
 	public void onAttackStyleChange(VarbitChanged event)
