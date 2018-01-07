@@ -1,8 +1,4 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.mapping.*;
 
 @ObfuscatedName("cj")
 @Implements("GraphicsObject")
@@ -147,6 +143,10 @@ public final class GraphicsObject extends Renderable {
    @ObfuscatedSignature(
       signature = "(II)Z",
       garbageValue = "600080221"
+   )
+   @Hook(
+       value = "loadWidget",
+       end = true
    )
    @Export("loadWidget")
    public static boolean loadWidget(int var0) {

@@ -296,6 +296,15 @@ public class Hooks
 		eventBus.post(setMessage);
 	}
 
+	public static void loadWidget(int groupId)
+	{
+		WidgetGroupLoaded groupLoaded = new WidgetGroupLoaded();
+		groupLoaded.setGroupId(groupId);
+		System.out.println("group: " + groupId + " loaded");
+
+		eventBus.post(groupLoaded);
+	}
+
 	public static void onNpcUpdate(boolean var0, PacketBuffer var1)
 	{
 		eventBus.post(tick);
