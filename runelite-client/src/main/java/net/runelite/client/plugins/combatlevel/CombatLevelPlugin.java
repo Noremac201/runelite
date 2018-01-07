@@ -24,6 +24,7 @@
  */
 package net.runelite.client.plugins.combatlevel;
 
+import com.google.common.eventbus.Subscribe;
 import com.google.inject.Provides;
 import java.text.DecimalFormat;
 import java.time.temporal.ChronoUnit;
@@ -35,6 +36,7 @@ import net.runelite.api.Skill;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.config.ConfigManager;
+import net.runelite.client.events.WidgetGroupLoaded;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.task.Schedule;
@@ -58,42 +60,36 @@ public class CombatLevelPlugin extends Plugin
 		return configManager.getConfig(CombatLevelConfig.class);
 	}
 
-	@Schedule(
-		period = 600,
-		unit = ChronoUnit.MILLIS
-	)
-	public void updateCombatLevel()
+	@Subscribe
+	public void updateCombatLevel(WidgetGroupLoaded event)
 	{
-		if (client.getGameState() != GameState.LOGGED_IN)
+		if(event.getGroupId() == WidgetInfo.COMBAT_LEVEL.getGroupId())
 		{
-			return;
-		}
+			if (client.getGameState() != GameState.LOGGED_IN) {
+				return;
+			}
 
-		Widget combatLevelWidget = client.getWidget(WidgetInfo.COMBAT_LEVEL);
-		if (combatLevelWidget == null)
-		{
-			return;
-		}
+			Widget combatLevelWidget = client.getWidget(WidgetInfo.COMBAT_LEVEL);
+			if (combatLevelWidget == null) {
+				return;
+			}
 
-		if (config.enabled())
-		{
-			double combatLevelPrecise = Experience.getCombatLevelPrecise(
-				client.getRealSkillLevel(Skill.ATTACK),
-				client.getRealSkillLevel(Skill.STRENGTH),
-				client.getRealSkillLevel(Skill.DEFENCE),
-				client.getRealSkillLevel(Skill.HITPOINTS),
-				client.getRealSkillLevel(Skill.MAGIC),
-				client.getRealSkillLevel(Skill.RANGED),
-				client.getRealSkillLevel(Skill.PRAYER)
-			);
-			combatLevelWidget.setText("Combat Lvl: " + decimalFormat.format(combatLevelPrecise));
-		}
-		else
-		{
-			String widgetText = combatLevelWidget.getText();
-			if (widgetText.contains("."))
-			{
-				combatLevelWidget.setText(widgetText.substring(0, widgetText.indexOf(".")));
+			if (config.enabled()) {
+				double combatLevelPrecise = Experience.getCombatLevelPrecise(
+						client.getRealSkillLevel(Skill.ATTACK),
+						client.getRealSkillLevel(Skill.STRENGTH),
+						client.getRealSkillLevel(Skill.DEFENCE),
+						client.getRealSkillLevel(Skill.HITPOINTS),
+						client.getRealSkillLevel(Skill.MAGIC),
+						client.getRealSkillLevel(Skill.RANGED),
+						client.getRealSkillLevel(Skill.PRAYER)
+				);
+				combatLevelWidget.setText("Combat Lvl: " + decimalFormat.format(combatLevelPrecise));
+			} else {
+				String widgetText = combatLevelWidget.getText();
+				if (widgetText.contains(".")) {
+					combatLevelWidget.setText(widgetText.substring(0, widgetText.indexOf(".")));
+				}
 			}
 		}
 	}
