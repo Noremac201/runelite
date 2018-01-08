@@ -50,6 +50,7 @@ class WidgetID
 	static final int CHATBOX_GROUP_ID = 162;
 	static final int WORLD_MAP_MENU_GROUP_ID = 160;
 	static final int VOLCANIC_MINE_GROUP_ID = 611;
+	static final int BARBARIAN_ASSAULT_GROUP_ID = 488;
 
 	static class WorldMap
 	{
@@ -225,5 +226,13 @@ class WidgetID
 		static final int VENT_A_STATUS = 23;
 		static final int VENT_B_STATUS = 24;
 		static final int VENT_C_STATUS = 25;
+	}
+
+	static class BarbarianAssault
+	{
+		static final int CURRENT_WAVE = 1;
+		static final int CORRECT_STYLE = 3;
+		static final int TO_CALL = 5;
+		static final int ROLE = 7;
 	}
 }
