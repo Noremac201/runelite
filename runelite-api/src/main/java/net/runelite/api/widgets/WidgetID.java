@@ -158,6 +158,7 @@ class WidgetID
 	static class Chatbox
 	{
 		static final int CHATBOX_MESSAGES = 29;
+		static final int CHATBOX_REPORT_TEXT = 28;
 		static final int CHATBOX_BUTTONS = 1;
 	}
 
