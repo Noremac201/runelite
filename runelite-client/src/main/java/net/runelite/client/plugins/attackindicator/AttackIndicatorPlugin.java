@@ -24,29 +24,32 @@
  */
 package net.runelite.client.plugins.attackindicator;
 
+import static net.runelite.client.plugins.attackindicator.AttackStyle.CASTING;
+import static net.runelite.client.plugins.attackindicator.AttackStyle.DEFENSIVE_CASTING;
+import static net.runelite.client.plugins.attackindicator.AttackStyle.OTHER;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.google.common.eventbus.Subscribe;
 import com.google.inject.Binder;
 import com.google.inject.Provides;
+import java.time.temporal.ChronoUnit;
+import java.util.HashSet;
+import java.util.Set;
+import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
+import net.runelite.api.GameState;
 import net.runelite.api.Skill;
 import net.runelite.api.Varbits;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.events.ConfigChanged;
+import net.runelite.client.events.GameStateChanged;
 import net.runelite.client.events.VarbitChanged;
-import net.runelite.client.events.WidgetGroupLoaded;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-
-import javax.inject.Inject;
-import java.util.HashSet;
-import java.util.Set;
-
-import static net.runelite.client.plugins.attackindicator.AttackStyle.*;
+import net.runelite.client.task.Schedule;
 
 @PluginDescriptor(
 	name = "Attack indicator plugin"
@@ -54,8 +57,6 @@ import static net.runelite.client.plugins.attackindicator.AttackStyle.*;
 @Slf4j
 public class AttackIndicatorPlugin extends Plugin
 {
-	private static final int COMBAT_GROUP_ID = 593;
-
 	private int attackStyleVarbit = -1;
 	private int equippedWeaponTypeVarbit = -1;
 	private int castingModeVarbit = -1;
@@ -101,38 +102,40 @@ public class AttackIndicatorPlugin extends Plugin
 		return warnedSkillSelected;
 	}
 
-	@Override
-	protected void startUp() throws Exception
+	@Schedule(
+		period = 600,
+		unit = ChronoUnit.MILLIS
+	)
+	public void hideWidgets()
 	{
-		updateWarnedSkills(config.warnForAttack(), Skill.ATTACK);
-		updateWarnedSkills(config.warnForStrength(), Skill.STRENGTH);
-		updateWarnedSkills(config.warnForDefensive(), Skill.DEFENCE);
-		updateWarnedSkills(config.warnForRanged(), Skill.RANGED);
-		updateWarnedSkills(config.warnForMagic(), Skill.MAGIC);
-	}
-
-	@Subscribe
-	public void hideWidgets(WidgetGroupLoaded event)
-	{
-		if (event.getGroupId() == COMBAT_GROUP_ID)
+		if (widgetsToHide == null)
 		{
-			if (widgetsToHide == null)
-			{
-				return;
-			}
+			return;
+		}
 
-			WeaponType equippedWeaponType = WeaponType.getWeaponType(equippedWeaponTypeVarbit);
+		WeaponType equippedWeaponType = WeaponType.getWeaponType(equippedWeaponTypeVarbit);
 
-			if (widgetsToHide.containsRow(equippedWeaponType))
+		if (widgetsToHide.containsRow(equippedWeaponType))
+		{
+			for (WidgetInfo widgetKey : widgetsToHide.row(equippedWeaponType).keySet())
 			{
-				for (WidgetInfo widgetKey : widgetsToHide.row(equippedWeaponType).keySet())
-				{
-					hideWidget(client.getWidget(widgetKey), widgetsToHide.get(equippedWeaponType, widgetKey));
-				}
+				hideWidget(client.getWidget(widgetKey), widgetsToHide.get(equippedWeaponType, widgetKey));
 			}
 		}
 	}
 
+	@Subscribe
+	public void onGameStateChange(GameStateChanged event)
+	{
+		if (event.getGameState() == GameState.LOGGED_IN)
+		{
+			updateWarnedSkills(config.warnForAttack(), Skill.ATTACK);
+			updateWarnedSkills(config.warnForStrength(), Skill.STRENGTH);
+			updateWarnedSkills(config.warnForDefensive(), Skill.DEFENCE);
+			updateWarnedSkills(config.warnForRanged(), Skill.RANGED);
+			updateWarnedSkills(config.warnForMagic(), Skill.MAGIC);
+		}
+	}
 
 	@Subscribe
 	public void onAttackStyleChange(VarbitChanged event)

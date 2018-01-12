@@ -24,51 +24,61 @@
  */
 package net.runelite.client.plugins.barbarianassault;
 
-import net.runelite.api.widgets.WidgetInfo;
+import java.util.HashMap;
+import java.util.Map;
 
-public enum Role
+public enum Calls
 {
-	ATTACKER(WidgetInfo.BA_ATK_LISTEN_TEXT, WidgetInfo.BA_ATK_CALL_TEXT, WidgetInfo.BA_ATK_ROLE_TEXT, WidgetInfo.BA_ATK_ROLE_SPRITE),
-	DEFENDER(WidgetInfo.BA_DEF_LISTEN_TEXT, WidgetInfo.BA_DEF_CALL_TEXT, WidgetInfo.BA_DEF_ROLE_TEXT, WidgetInfo.BA_DEF_ROLE_SPRITE),
-	COLLECTOR(WidgetInfo.BA_COLL_LISTEN_TEXT, WidgetInfo.BA_COLL_CALL_TEXT, WidgetInfo.BA_COLL_ROLE_TEXT, WidgetInfo.BA_COLL_ROLE_SPRITE),
-	HEALER(WidgetInfo.BA_HEAL_LISTEN_TEXT, WidgetInfo.BA_HEAL_CALL_TEXT, WidgetInfo.BA_HEAL_ROLE_TEXT, WidgetInfo.BA_HEAL_ROLE_SPRITE);
+	//Attacker Calls
+	RED_EGG("Red egg", "Tell-red"),
+	GREEN_EGG("Green egg", "Tell-green"),
+	BLUE_EGG("Blue egg", "Tell-blue"),
+	//Collector Calls
+	CONTROLLED("Controlled/Bronze/Wind", "Tell-controlled"),
+	ACCURATE("Accurate/Iron/Water", "Tell-accurate"),
+	AGGRESSIVE("Aggressive/Steel/Earth", "Tell-aggressive"),
+	DEFENSIVE("Defensive/Mithril/Fire", "Tell-defensive"),
+	//Healer Calls
+	TOFU("Tofu", "Tell-tofu"),
+	CRACKERS("Crackers", "Tell-crackers"),
+	WORMS("Worms", "Tell-worms"),
+	//Defender Calls
+	POIS_WORMS("Pois. Worms", "Tell-worms"),
+	POIS_TOFU("Pois. Tofu", "Tell-tofu"),
+	POIS_MEAT("Pois. Meat", "Tell-meat");
 
-	private final WidgetInfo listen;
-	private final WidgetInfo call;
-	private final WidgetInfo roleText;
-	private final WidgetInfo roleSprite;
+	private final String call;
+	private final String option;
 
-	Role(WidgetInfo listen, WidgetInfo call, WidgetInfo role, WidgetInfo roleSprite)
+	private static final Map<String, String> CALL_MENU = new HashMap<>();
+
+	static
 	{
-		this.listen = listen;
+		for (Calls s : values())
+		{
+			CALL_MENU.put(s.getCall(), s.getOption());
+		}
+	}
+
+	Calls(String call, String option)
+	{
 		this.call = call;
-		this.roleText = role;
-		this.roleSprite = roleSprite;
+		this.option = option;
 	}
 
-	@Override
-	public String toString()
-	{
-		return name();
-	}
-
-	public WidgetInfo getListen()
-	{
-		return listen;
-	}
-
-	public WidgetInfo getCall()
+	public String getCall()
 	{
 		return call;
 	}
 
-	public WidgetInfo getRoleText()
+	public String getOption()
 	{
-		return roleText;
+		return option;
 	}
 
-	public WidgetInfo getRoleSprite()
+	public static String getOption(String call)
 	{
-		return roleSprite;
+		return CALL_MENU.get(call);
 	}
+
 }

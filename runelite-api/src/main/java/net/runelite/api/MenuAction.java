@@ -139,7 +139,40 @@ public enum MenuAction
 	 * Menu action injected by runelite for its menu items.
 	 */
 	RUNELITE(1500),
-	
+
+	/**
+	 * Menu action triggered by taking an object
+	 */
+	TAKE_OBJECT_GROUND(20),
+
+	/**
+	 * Menu actions triggered by calling for collector in Barbarian Assault.
+	 */
+	TELL_RED(33),
+	TELL_GREEN(34),
+	TELL_BLUE(35),
+
+	/**
+	 * Menu actions triggered by calling for defender/healer in Barbarian Assault.
+	 */
+	TELL_TOFU(33),
+	TELL_CRACKERS(34),
+	TELL_WORMS(35),
+
+	/**
+	 * Menu actions triggered by calling for attackers in Barbarian Assault.
+	 */
+	TELL_CONTROLLED(33),
+	TELL_ACCURATE(34),
+	TELL_AGGRESSIVE(35),
+	TELL_DEFENSIVE(36),
+
+	/**
+	 * Menu actions triggered by calling for medic in Barbarian Assault.
+	 */
+	CALL_MEDIC_ATK(37),
+	CALL_MEDIC_OTHER(36),
+
 	/**
 	 * Menu action triggered when the id is not defined in this class.
 	 */

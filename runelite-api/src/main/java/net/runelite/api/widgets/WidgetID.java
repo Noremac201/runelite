@@ -54,7 +54,6 @@ class WidgetID
 	static final int BA_COLLECTOR_GROUP_ID = 486;
 	static final int BA_DEFENDER_GROUP_ID = 487;
 	static final int BA_HEALER_GROUP_ID = 488;
-	static final int BA_WAVE_COMPLETE_ID = 497;
 
 	static class WorldMap
 	{
@@ -244,15 +243,11 @@ class WidgetID
 			static final int ROLE = 8;
 			static final int ROLE_SPRITE = 7;
 		}
+
 		static final int CURRENT_WAVE = 1;
 		static final int CORRECT_STYLE = 3;
 		static final int TO_CALL = 5;
 		static final int ROLE_SPRITE = 6;
 		static final int ROLE = 7;
-	}
-
-	static class BarbarianAssaultWaveComplete
-	{
-		static final int WAVE_COMPLETE = 3;
 	}
 }
