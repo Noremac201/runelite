@@ -31,4 +31,5 @@ public class SkillDataEntry
 	public double xp;
 	public Integer icon;
 	public Integer sprite;
+	public boolean canBonus = true;
 }
